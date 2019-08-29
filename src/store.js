@@ -7,12 +7,12 @@ export default new Vuex.Store({
   state: {
   
     images: [
-        { name: "kontakt",
-         url: "./images/kontakt.png"},
-        { name: "coaching",
-         url: "./images/coaching.jpg"},
-         { name: "typologi",
-         url: "./images/typologi.jpg"}
+        { name: "Kontakt",
+         url: "./images/Kontakt.png"},
+        { name: "Coaching",
+         url: "./images/Coaching.jpg"},
+         { name: "Typologi",
+         url: "./images/Typologi.jpg"}
 
 
       ]

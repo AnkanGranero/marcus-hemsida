@@ -6,7 +6,9 @@
 <script>
 export default {
     name: "PageBody",
-    props: [ "imageProp"],
+    props: { 
+        imageProp: String
+         },
     computed: {
         image() {
             console.log(this.$store.getters.images.filter(i => i.name === this.imageProp));
