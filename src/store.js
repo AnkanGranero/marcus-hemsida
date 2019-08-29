@@ -5,9 +5,17 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    images: {
-      
-    }
+  
+    images: [
+        { name: "kontakt",
+         url: "./images/kontakt.png"},
+        { name: "coaching",
+         url: "./images/coaching.jpg"},
+         { name: "typologi",
+         url: "./images/typologi.jpg"}
+
+
+      ]
   },
   mutations: {},
   actions: {},

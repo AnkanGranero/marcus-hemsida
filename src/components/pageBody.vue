@@ -1,19 +1,24 @@
 <template>
 <div class="body-wrapper">
-    <img src="" alt="">
-<div>    
+    <img class="page-image" :src="image[0].url" alt=""/>
+</div>    
 </template>
 <script>
 export default {
-    name: "pageBody",
+    name: "PageBody",
+    props: [ "imageProp"],
     computed: {
-        images() {
-            return this.$store.getters.images
+        image() {
+            console.log(this.$store.getters.images.filter(i => i.name === this.imageProp));
+            return this.$store.getters.images.filter(i => i.name === this.imageProp)
         }
     }
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="css" scoped>
+.page-image {
+    height: 100%;
+}
 
 </style>
