@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Kontakt from "./views/Kontakt.vue";
 import Typologi from "./views/Typologi.vue";
+import Coaching from "./views/Coaching.vue";
 
 
 Vue.use(Router);
@@ -25,6 +26,10 @@ export default new Router({
       path: "/Typologi",
       name: "Typologi",
       component: Typologi
-    }
+    },
+    { path: "/Coaching",
+    name: "Coaching",
+    component: Coaching
+  }
   ]
 });

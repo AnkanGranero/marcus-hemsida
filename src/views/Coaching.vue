@@ -1,6 +1,6 @@
 <template>
-  <div class="Typologi">
-<h1>Typologi</h1>
+  <div class="Coaching">
+<h1>Coaching</h1>
 <PageBody :imageProp="name"></PageBody>
   </div>
 </template>
@@ -9,9 +9,9 @@
 import PageBody from "@/components/PageBody.vue"
 
 export default {
-  name: "Typologi",
+  name: "Coaching",
   data() {
-        return { name: "Typologi" }
+        return { name: "Coaching" }
   },
   components: {
     PageBody
