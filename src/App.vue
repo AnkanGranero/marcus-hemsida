@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/Kontakt">Kontakt</router-link>
+       <router-link to="/Typologi">Typologi</router-link>
     </div>
     <router-view />
   </div>

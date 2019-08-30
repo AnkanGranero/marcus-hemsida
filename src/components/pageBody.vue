@@ -1,6 +1,8 @@
 <template>
 <div class="body-wrapper">
+    <div class="img-wrapper">
     <img class="page-image" :src="image[0].url" alt=""/>
+    </div>
 </div>    
 </template>
 <script>
@@ -20,7 +22,9 @@ export default {
 
 <style lang="css" scoped>
 .page-image {
-    height: 100%;
+    width: 100%;
 }
+.img-wrapper {
 
+}
 </style>
