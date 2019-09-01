@@ -6,22 +6,30 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
   
-    images: [
+    pages: [
+       { name: "Home",
+         image: "./images/Home.png",
+         path: "/"
+        },
         { name: "Kontakt",
-         url: "./images/Kontakt.png"},
+         image: "./images/Kontakt.png",
+         path: "/Kontakt"
+        },
         { name: "Coaching",
-         url: "./images/Coaching.jpg"},
+         image: "./images/Coaching.jpg",
+         path: "/Coaching"
+        },
          { name: "Typologi",
-         url: "./images/Typologi.jpg"}
-
-
-      ]
+         image: "./images/Typologi.jpg",
+         path: "/Typologi"
+        }
+      ],
   },
   mutations: {},
   actions: {},
   getters: {
-    images: state => {
-      return state.images
+    pages: state => {
+      return state.pages
     }
   }
 });
