@@ -1,31 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/Kontakt">Kontakt</router-link>
-      <router-link to="/Typologi">Typologi</router-link>
-      <router-link to="/Coaching">Coaching</router-link>
-    </div>
+
+     <Header-component class="desktop-header"></Header-component>
+
     <router-view />
   </div>
 </template>
 
-<style>
+<script>
+import HeaderComponent from "./components/HeaderComponent"
+export default {
+  name: "App",
+  components: { HeaderComponent }
+
+}
+</script>
+
+<style lang="scss">
+
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+  
+   width: 100%;}
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
 #nav a.router-link-exact-active {
   color: #42b983;

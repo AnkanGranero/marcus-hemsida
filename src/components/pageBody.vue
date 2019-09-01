@@ -1,9 +1,14 @@
 <template>
+
 <div class="body-wrapper">
+
+
     <div class="img-wrapper">
-    <img class="page-image" :src="image[0].url" alt=""/>
+    <img class="page-image" :src="page[0].image" alt=""/>
+        <h1>{{page[0].name}}</h1>
     </div>
-</div>    
+</div>   
+
 </template>
 <script>
 export default {
@@ -12,15 +17,20 @@ export default {
         imageProp: String
          },
     computed: {
-        image() {
-            console.log(this.$store.getters.images.filter(i => i.name === this.imageProp));
-            return this.$store.getters.images.filter(i => i.name === this.imageProp)
+        page() {
+            return this.$store.getters.pages.filter(i => i.name === this.imageProp)
         }
     }
 }
 </script>
 
-<style lang="css" scoped>
+
+<style lang="scss" scoped>
+
+
+h1 {
+    text-align: center;
+}
 .page-image {
     width: 100%;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="Typologi">
-<h1>Typologi</h1>
+
 <PageBody :imageProp="name"></PageBody>
   </div>
 </template>

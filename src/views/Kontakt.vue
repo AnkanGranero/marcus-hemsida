@@ -1,6 +1,6 @@
 <template>
   <div class="Kontakt">
-<h1>Kontakt</h1>
+
 <PageBody :imageProp="name"></PageBody>
   </div>
 </template>
