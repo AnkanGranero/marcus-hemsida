@@ -1,24 +1,61 @@
 <template>
-        
-    <div class="header-wrapper">
+        <div class="header-wrapper">
+    <div v-if="sideNavIsVisible" class="overlay" @click="toggleSideNav"></div>
+
+
+    <div class="header-top">
         <img class="von-eckermann" src="logos/von-eckermann.png" alt="">
     <div class="links">
     <router-link v-for="page in pages" :key="page.name" :to="page.path">{{page.name}}</router-link>
     </div>
-    <img class="hamburger" src="/logos/hamburger.png">
-
+    <img class="hamburger" src="/logos/hamburger.png" @click="toggleSideNav">
+    </div>
+        <div class="sidenav" :class="{active : sideNavIsVisible}">
+          
+        <ul class="sidenav-list">
+            <li v-for="page in pages" :key="page.name">
+            <router-link :to="page.path"
+            @click.native="toggleSideNav">{{page.name}}
+            </router-link></li>
+        </ul>
+       
+        </div>
+                <div class="img-wrapper">
+    <img class="page-image" :src="thisPage[0].image" alt=""/>
+           </div>
     </div>
 </template>
 
 <script>
 export default {
     name: "HeaderComponent",
-    computed: {
+    data() {
+        return {
+            sideNavIsVisible: false,
+        }
+      },
+        computed: {
+            
+    currentRouteName() {
+        return this.$route.name;
+    },
+
+        thisPage() {
+            return this.$store.getters.pages.filter(i => i.name === this.currentRouteName)
+        },
+        
         pages() {
-            console.log(this.$store.getters.pages)
+
             return this.$store.getters.pages
         }
-    }
+    },
+    methods: {
+        toggleSideNav() {
+            
+            this.sideNavIsVisible=!this.sideNavIsVisible
+            
+        }
+    },
 }
 </script>
 
@@ -26,6 +63,14 @@ export default {
 
 @import "@/scss/_variables.scss";
 @import "@/scss/_colors.scss";
+@import "@/scss/_sizes.scss";
+
+.header-wrapper {
+    overflow: hidden;
+}
+.page-image {
+    width: 100%;
+}
 
 .hamburger {
     height: 120%;
@@ -35,8 +80,49 @@ export default {
 
 }
 }
+.sidenav {
+    
+    position: absolute;
+    background: $background;
+    right:0;
+    display: none;
 
-.header-wrapper {
+
+    & ul {
+      
+        padding: 0;
+        margin: 0;
+        z-index: 2;
+    }
+    
+    & li {
+        padding: 20px;
+        margin-left: 0;
+        border-bottom: 1px solid #ddcfcf;
+        font-size: $medium;
+    }
+    & a {
+        margin: 0 40px;
+    }
+}
+    .active {
+    display: block;
+    transform: translateX(0%);
+
+
+}
+
+.overlay {
+    height:100vh;
+    width: 100vw;
+    position:absolute; 
+    z-index: 0;
+    
+}
+
+
+
+.header-top {
     height: 5vh;
     display: flex;
     justify-content: space-between;

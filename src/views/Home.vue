@@ -1,7 +1,7 @@
 <template>
   <div class="home">
 
-<PageBody></PageBody>
+<PageBody :propName="name"></PageBody>
   </div>
 </template>
 
@@ -10,6 +10,11 @@ import PageBody from "@/components/PageBody.vue"
 
 export default {
   name: "home",
+  data() {
+    return {
+      name: "Home"
+    }
+  },
   components: {
     PageBody
 

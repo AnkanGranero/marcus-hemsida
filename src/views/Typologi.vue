@@ -1,7 +1,7 @@
 <template>
   <div class="Typologi">
 
-<PageBody :imageProp="name"></PageBody>
+<PageBody :propName="name"></PageBody>
   </div>
 </template>
 

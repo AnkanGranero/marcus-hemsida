@@ -20,12 +20,21 @@ export default {
 
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "ambroise-std-1","ambroise-std-2",serif;
   
    width: 100%;}
 
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+li {
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: black
 }
 </style>
