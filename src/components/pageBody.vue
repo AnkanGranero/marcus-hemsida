@@ -1,11 +1,13 @@
 <template>
 
-<div class="body-wrapper">
+<div class="page-wrapper">
 
 
-    <div class="img-wrapper">
-    <img class="page-image" :src="page[0].image" alt=""/>
-        <h1>{{page[0].name}}</h1>
+
+        <h1>{{propName}}</h1>
+        <div class="body-wrapper">
+            <slot></slot>
+ 
     </div>
 </div>   
 
@@ -14,13 +16,9 @@
 export default {
     name: "PageBody",
     props: { 
-        imageProp: String
+        propName: String
          },
-    computed: {
-        page() {
-            return this.$store.getters.pages.filter(i => i.name === this.imageProp)
-        }
-    }
+
 }
 </script>
 
@@ -31,10 +29,12 @@ export default {
 h1 {
     text-align: center;
 }
-.page-image {
-    width: 100%;
-}
+
 .img-wrapper {
 
+}
+.body-wrapper {
+    max-width: 100%;
+    padding: 5%;
 }
 </style>
