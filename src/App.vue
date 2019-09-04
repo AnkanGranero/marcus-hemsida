@@ -22,7 +22,7 @@ export default {
 #app {
   font-family: "ambroise-std-1","ambroise-std-2",serif;
   
-   width: 100%;}
+  }
 
 
 #nav a.router-link-exact-active {
