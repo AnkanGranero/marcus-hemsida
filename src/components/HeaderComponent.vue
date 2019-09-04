@@ -10,17 +10,19 @@
     </div>
     <img class="hamburger" src="/logos/hamburger.png" @click="toggleSideNav">
     </div>
+     <div class="img-wrapper">
         <div class="sidenav" :class="{active : sideNavIsVisible}">
           
-        <ul class="sidenav-list">
+        <ul class="sidenav-list"
+        @click.native="toggleSideNav">
             <li v-for="page in pages" :key="page.name">
             <router-link :to="page.path"
-            @click.native="toggleSideNav">{{page.name}}
+            >{{page.name}}
             </router-link></li>
         </ul>
        
         </div>
-                <div class="img-wrapper">
+               
     <img class="page-image" :src="thisPage[0].image" alt=""/>
            </div>
     </div>
@@ -65,7 +67,9 @@ export default {
 @import "@/scss/_colors.scss";
 @import "@/scss/_sizes.scss";
 
+
 .header-wrapper {
+    position:relative;
     overflow: hidden;
 }
 .page-image {
@@ -85,7 +89,10 @@ export default {
     position: absolute;
     background: $background;
     right:0;
-    display: none;
+    width: 1px; 
+   margin: 0; padding: 0; border: 0;
+    transition: 0.3s ease-out;
+    
 
 
     & ul {
@@ -97,6 +104,7 @@ export default {
     
     & li {
         padding: 20px;
+        padding-left:0;
         margin-left: 0;
         border-bottom: 1px solid #ddcfcf;
         font-size: $medium;
@@ -106,9 +114,11 @@ export default {
     }
 }
     .active {
-    display: block;
-    transform: translateX(0%);
+    
 
+    transform: width;
+    width: 40%;
+  
 
 }
 
