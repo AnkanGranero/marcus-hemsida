@@ -8,7 +8,7 @@ export default new Vuex.Store({
   
     pages: [
        { name: "Home",
-         image: "./images/Home.png",
+         image: "./images/Home.jpg",
          path: "/"
         },
         { name: "Kontakt",
