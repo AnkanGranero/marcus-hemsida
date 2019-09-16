@@ -27,7 +27,7 @@
           så att du själv kan få ett bättre grepp om människorna omkring dig men också såklart dig själv.
         </p>
 
-        <button class="boka-tid">Boka tid</button>
+        <router-link to="/Kontakt" class="boka-tid">Boka tid</router-link>
 
         <h2>För er som vill läsa mer…</h2>
 
