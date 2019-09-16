@@ -82,28 +82,33 @@ export default {
   padding: 0;
   border: 0;
   transition: 0.2s ease-out;
-
-  & ul {
+  overflow: hidden & ul {
     padding: 0;
     margin: 0;
     z-index: 2;
   }
 
   & li {
-    padding: 20px;
-    padding-left: 0;
+    padding: 20px 0 40px 0;
     margin-left: 0;
     border-bottom: 1px solid #ddcfcf;
     font-size: $medium;
   }
   & a {
     margin: 0 40px;
+    position: absolute;
   }
 }
 .active {
   transform: width;
   width: 70%;
   /*   width: auto; */
+}
+
+.sidenav-list {
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .overlay {

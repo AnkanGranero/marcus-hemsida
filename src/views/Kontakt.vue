@@ -1,5 +1,5 @@
 <template>
-  <div class="Kontakt">
+  <div class="kontakt">
     <PageBody :propName="name">
       <template v-slot:body-text>
         <p>Jag heter Marcus von Eckermann</p>
@@ -22,11 +22,13 @@
         </ul>
       </template>
     </PageBody>
+    <FormComp />
   </div>
 </template>
 
 <script>
 import PageBody from "@/components/PageBody.vue";
+import FormComp from "@/components/FormComp.vue";
 
 export default {
   name: "Kontakt",
@@ -34,7 +36,10 @@ export default {
     return { name: "Kontakt" };
   },
   components: {
-    PageBody
+    PageBody,
+    FormComp
   }
 };
 </script>
+<style lang="scss">
+</style>
