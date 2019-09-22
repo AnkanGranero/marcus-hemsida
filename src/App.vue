@@ -15,9 +15,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Muli|Nunito+Sans|Quicksand|Raleway&display=swap");
+
 #app {
-  font-family: sans-serif;
+  font-family: "Muli", "Raleway", sans-serif;
   overflow: hidden;
+  line-height: 25px;
+}
+
+h1 {
+  font-size: 3em;
 }
 
 #nav a.router-link-exact-active {
