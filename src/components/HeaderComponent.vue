@@ -3,11 +3,11 @@
     <div v-if="sideNavIsVisible" class="overlay" @click="toggleSideNav"></div>
 
     <div class="header-top">
-      <img class="von-eckermann" src="/logos/von-eckermann-white.png" alt />
+      <img class="von-eckermann" :src="vonEckermannLogo" alt />
       <div class="links">
         <router-link v-for="page in pages" :key="page.name" :to="page.path">{{page.name}}</router-link>
       </div>
-      <img class="hamburger" src="/logos/hamburger-white.png" @click="toggleSideNav" />
+      <img class="hamburger" :src="hamburgerLogo" @click="toggleSideNav" />
     </div>
 
     <div class="sidenav" :class="{active : sideNavIsVisible}">
@@ -27,9 +27,12 @@ export default {
   name: "HeaderComponent",
   data() {
     return {
-      sideNavIsVisible: false
+      sideNavIsVisible: false,
+      windowWidth: 0,
+      windowHeight: 0
     };
   },
+
   computed: {
     currentRouteName() {
       return this.$route.name;
@@ -45,21 +48,31 @@ export default {
       return this.$store.getters.pages;
     },
     logos() {
-      console.log("screen width", screen.width);
       return this.$store.getters.logos;
     },
+
     hamburgerLogo() {
-      console.log("logor", this.logos);
-      /*  this.logos.filter(logo => logo.name === "hamburger"); */
+      return this.logos.filter(l => l.name === "hamburger").map(l => l.white);
     },
     vonEckermannLogo() {
-      /* this.logo.filter(logo => logo.name === "von-eckermann"); */
+      const color = this.windowWidth > 1024 ? "black" : "white";
+      return this.logos
+        .filter(l => l.name === "von-eckermann")
+        .map(l => l[color]);
     }
   },
   methods: {
     toggleSideNav() {
       this.sideNavIsVisible = !this.sideNavIsVisible;
+    },
+    handleResize() {
+      this.windowWidth = screen.width;
+      this.windowHeight = screen.height;
     }
+  },
+  mounted() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
   }
 };
 </script>
@@ -79,7 +92,8 @@ export default {
 
 .hamburger {
   height: 120%;
-
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
   @media only screen and (min-width: $pad) {
     display: none;
   }
@@ -130,7 +144,8 @@ export default {
 }
 
 .header-top {
-  height: 5vh;
+  height: 10vw;
+  max-height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -161,7 +176,8 @@ export default {
   @media only screen and (min-width: $pad) {
     display: flex;
     justify-content: space-between;
-    width: -webkit-fill-available;
+    width: 50%;
+    margin-right: 5%;
   }
 }
 </style>
