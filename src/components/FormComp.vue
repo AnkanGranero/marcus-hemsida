@@ -1,7 +1,21 @@
 <template>
   <div class="form-wrapper">
-    <input v-model="namn" />
-    <input v-model="mail" />
+    <div class="input-wrapper">
+      <label for="namn">
+        Namn
+        <span>(måste anges)</span>
+      </label>
+      <input v-model="namn" />
+    </div>
+
+    <div class="input-wrapper">
+      <label for="mail">
+        Mail
+        <span>(måste anges)</span>
+      </label>
+      <input v-model="mail" />
+    </div>
+
     <select v-model="selected" id>
       <option disabled value>Please select one</option>
       <option>A</option>
@@ -32,8 +46,6 @@ export default {
 @import "@/scss/_sizes.scss";
 
 .form-wrapper {
-  background: rgb(212, 212, 212);
-
   display: flex;
   flex-direction: column;
   padding: 5%;
@@ -48,6 +60,10 @@ export default {
     width: 100%;
     font-size: $small;
     border: 1px solid black;
+  }
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>
