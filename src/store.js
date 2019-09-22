@@ -24,12 +24,26 @@ export default new Vuex.Store({
          path: "/Typologi"
         }
       ],
+      logos: [
+        {name: "von-eckermann",
+        black: "logos/von-eckermann-black.png",
+        white: "logos/von-eckermann-white.png"
+      },
+        {name: "hamburger",
+        black: "logos/hamburger-black.png",
+        white: "logos/hamburger-white.png"
+
+        }
+      ]
   },
   mutations: {},
   actions: {},
   getters: {
     pages: state => {
       return state.pages
+    },
+    logos: state => {
+      return state.logos
     }
   }
 });

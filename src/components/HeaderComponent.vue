@@ -3,11 +3,11 @@
     <div v-if="sideNavIsVisible" class="overlay" @click="toggleSideNav"></div>
 
     <div class="header-top">
-      <img class="von-eckermann" src="logos/von-eckermann.png" alt />
+      <img class="von-eckermann" src="/logos/von-eckermann-white.png" alt />
       <div class="links">
         <router-link v-for="page in pages" :key="page.name" :to="page.path">{{page.name}}</router-link>
       </div>
-      <img class="hamburger" src="/logos/hamburger.png" @click="toggleSideNav" />
+      <img class="hamburger" src="/logos/hamburger-white.png" @click="toggleSideNav" />
     </div>
 
     <div class="sidenav" :class="{active : sideNavIsVisible}">
@@ -43,6 +43,17 @@ export default {
 
     pages() {
       return this.$store.getters.pages;
+    },
+    logos() {
+      console.log("screen width", screen.width);
+      return this.$store.getters.logos;
+    },
+    hamburgerLogo() {
+      console.log("logor", this.logos);
+      /*  this.logos.filter(logo => logo.name === "hamburger"); */
+    },
+    vonEckermannLogo() {
+      /* this.logo.filter(logo => logo.name === "von-eckermann"); */
     }
   },
   methods: {
@@ -125,7 +136,14 @@ export default {
   align-items: center;
   padding: 20px 10px;
   font-size: 19px;
-  background: $background;
+  background: transparent;
+  position: absolute;
+  width: -webkit-fill-available;
+
+  @media only screen and (min-width: $pad) {
+    position: static;
+    background: $background;
+  }
 
   & a {
     font-weight: bold;
@@ -135,7 +153,7 @@ export default {
 }
 
 .von-eckermann {
-  height: 200%;
+  height: 150%;
 }
 
 .links {
