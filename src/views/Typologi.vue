@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import PageBody from "@/components/PageBody.vue";
+import PageBody from "../components/PageBody.vue";
 
 export default {
   name: "Typologi",
