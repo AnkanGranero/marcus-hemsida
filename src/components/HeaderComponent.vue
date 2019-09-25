@@ -92,8 +92,6 @@ export default {
 
 .hamburger {
   height: 120%;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
   @media only screen and (min-width: $pad) {
     display: none;
   }
@@ -107,6 +105,8 @@ export default {
   padding: 0;
   border: 0;
   transition: 0.2s ease-out;
+  top: 86px;
+  opacity: 0.95;
   overflow: hidden & ul {
     padding: 0;
     margin: 0;
@@ -158,17 +158,19 @@ export default {
   @media only screen and (min-width: $pad) {
     position: static;
     background: $background;
+    box-shadow: 1px 2px 4px rgba(240, 240, 240, 0.3);
   }
 
   & a {
-    font-weight: bold;
+    font-weight: 200;
+    font-size: 1.3em;
     color: #2c3e50;
     text-decoration: none;
   }
 }
 
 .von-eckermann {
-  height: 150%;
+  height: 130%;
 }
 
 .links {

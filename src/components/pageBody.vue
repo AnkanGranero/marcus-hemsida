@@ -29,10 +29,9 @@ export default {
 <style lang="scss" scoped>
 h1 {
   text-align: center;
+  margin-top: 5%;
 }
 
-.img-wrapper {
-}
 .body-wrapper {
   max-width: 100%;
   padding: 5%;
