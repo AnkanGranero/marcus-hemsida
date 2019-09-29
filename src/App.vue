@@ -25,7 +25,7 @@ export default {
 
 h1 {
   font-size: 3em;
-  font-weight: 200;
+  font-weight: 300;
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
 }
 h2 {
@@ -38,7 +38,7 @@ h2 {
 
 li {
   list-style: none;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 a {
@@ -49,5 +49,11 @@ a {
 
 p {
   font-weight: 100;
+  font-size: 20px;
+}
+
+ul {
+  /* white-space: nowrap; */
+  font-size: 20px;
 }
 </style>
