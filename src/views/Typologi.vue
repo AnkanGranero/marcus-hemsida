@@ -1,6 +1,7 @@
 <template>
   <div class="Typologi">
     <PageBody :propName="name">
+      <template v-slot:top-box></template>
       <template v-slot:body-text>
         <h2>Mitt verktyg: Typologi</h2>
         <p>Jag är en coach med ett kraftfullt verktyg i portföljen som jag i sättet jag använder det på är relativt ensam om…</p>

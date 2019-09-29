@@ -84,6 +84,7 @@ export default {
 
 .header-wrapper {
   position: relative;
+  z-index: 3;
   /*   overflow: hidden; */
 }
 .page-image {
