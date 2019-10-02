@@ -9,18 +9,22 @@ export default new Vuex.Store({
     pages: [
        { name: "Home",
          image: "./images/Home.jpg",
+         imageMobile: "./images/Home-mobile-dark.jpg",
          path: "/"
         },
         { name: "Kontakt",
          image: "./images/Kontakt.png",
+         imageMobile: "./images/Kontakt-mobile-dark.jpg",
          path: "/Kontakt"
         },
         { name: "Coaching",
-         image: "./images/Coaching.jpg",
+         imageDesktop: "./images/Coaching-mobile.jpg",
+         imageMobile: "./images/Coaching-mobile-dark.jpg",
          path: "/Coaching"
         },
          { name: "Typologi",
          image: "./images/Typologi.jpg",
+          imageMobile: "./images/Typologi-mobile.jpg",
          path: "/Typologi"
         }
       ],
