@@ -1,15 +1,15 @@
 <template>
   <div class="Coaching">
     <PageBody :propName="name">
-      <template v-slot:top-box>
-        <h1>De generella grunderna för ett coachsamtal</h1>
+      <template v-slot:box-1>
+        <h2>De generella grunderna för ett coachsamtal</h2>
         <ul>
           <li>1. Du definierar målet för samtalet, det kan vara en handlingsplan eller en insikt du vill uppnå.</li>
           <li>2. Coachingen tydliggör vad som är viktigt, undanröjer hinder på vägen och plockar upp lärdomar på vägen.</li>
           <li>3. Du och jag kliver in i ett partnerskap där vi utforskar, utmanar, ser möjligheter, sorterar och fokuserar på det viktiga i samtalet.</li>
         </ul>
       </template>
-      <template v-slot:body-text>
+      <template v-slot:box-2>
         <div class="wrapper">
           <img src alt />
           <p>
