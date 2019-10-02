@@ -17,19 +17,24 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Muli|Nunito+Sans|Quicksand|Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Be+Vietnam:100i,300,300i,400,400i,500&display=swap");
 #app {
-  font-family: "Oswald", sans-serif;
+  /*  font-family: "Oswald", sans-serif; */
+  font-family: "Be Vietnam", sans-serif;
   overflow: hidden;
   line-height: 30px;
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 5em;
   font-weight: 300;
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
 }
 h2 {
   font-weight: 400;
+  text-align: center;
+  margin-bottom: 20%;
+  /*  color: #68d368; */
 }
 
 #nav a.router-link-exact-active {
