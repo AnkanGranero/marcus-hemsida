@@ -152,9 +152,10 @@ export default {
   align-items: center;
   padding: 20px 10px;
   font-size: 19px;
-  background: transparent;
+  /*   background: rgba(0, 0, 0, 0.4); */
   position: absolute;
   width: -webkit-fill-available;
+  border-bottom: 1px solid white;
 
   @media only screen and (min-width: $pad) {
     position: static;
@@ -171,7 +172,7 @@ export default {
 }
 
 .von-eckermann {
-  height: 130%;
+  height: 154%;
 }
 
 .links {
