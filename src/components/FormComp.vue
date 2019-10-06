@@ -51,8 +51,10 @@ export default {
   padding: 5%;
 
   input {
-    border: 1px solid black;
-    width: 20%;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-bottom: 1px solid black;
+    width: 250px;
     font-size: $small;
   }
 

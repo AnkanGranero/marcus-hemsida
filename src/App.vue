@@ -15,6 +15,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/scss/_variables.scss";
+
 @import url("https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Muli|Nunito+Sans|Quicksand|Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Be+Vietnam:100i,300,300i,400,400i,500&display=swap");
@@ -34,6 +36,8 @@ h2 {
   font-weight: 400;
   text-align: center;
   margin-bottom: 20%;
+  font-size: 3em;
+  line-height: 55px;
   /*  color: #68d368; */
 }
 
@@ -44,6 +48,7 @@ h2 {
 li {
   list-style: none;
   font-weight: 300;
+  font-size: 16px;
 }
 
 a {
@@ -54,7 +59,10 @@ a {
 
 p {
   font-weight: 100;
-  font-size: 20px;
+  font-size: 16px;
+  @media only screen and (min-width: $pad) {
+    font-size: 20px;
+  }
 }
 
 ul {
