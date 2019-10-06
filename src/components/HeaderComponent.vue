@@ -1,35 +1,40 @@
 <template>
   <div class="header-wrapper">
-    <div v-if="sideNavIsVisible" class="overlay" @click="toggleSideNav"></div>
+    <!-- <div v-if="sideNavIsVisible" class="overlay" @click="toggleSideNav"></div> -->
 
     <div class="header-top">
-      <img class="von-eckermann" :src="vonEckermannLogo" alt />
+      <img class="von-eckermann" :src="eckermannLogo" alt />
       <div class="links">
         <router-link v-for="page in pages" :key="page.name" :to="page.path">{{page.name}}</router-link>
       </div>
-      <img class="hamburger" :src="hamburgerLogo" @click="toggleSideNav" />
+      <img class="hamburger" :src="hamburgerLogo" @click="toggleOverlay" />
     </div>
 
-    <div class="sidenav" :class="{active : sideNavIsVisible}">
-      <ul class="sidenav-list" @click.native="toggleSideNav">
-        <li v-for="page in pages" :key="page.name">
-          <router-link :to="page.path">{{page.name}}</router-link>
-        </li>
-      </ul>
+    <!--     <div class="sidenav" :class="{active : sideNavIsVisible}">
+      
 
-      <!--       <img class="page-image" :src="thisPage[0].image" alt /> -->
-    </div>
+    </div>-->
+    <mobile-overlay
+      v-on:clicked="toggleOverlay"
+      :overlayIsVisible="overlayIsVisible"
+      :eckermannLogo="eckermannLogo"
+    />
   </div>
 </template>
 
 <script>
+import MobileOverlay from "./mobileOverlay";
+
 export default {
   name: "HeaderComponent",
+  components: { MobileOverlay },
+
   data() {
     return {
-      sideNavIsVisible: false,
+      overlayIsVisible: false,
       windowWidth: 0,
-      windowHeight: 0
+      windowHeight: 0,
+      overlayIsVisible: false
     };
   },
 
@@ -54,7 +59,7 @@ export default {
     hamburgerLogo() {
       return this.logos.filter(l => l.name === "hamburger").map(l => l.white);
     },
-    vonEckermannLogo() {
+    eckermannLogo() {
       const color = this.windowWidth > 1024 ? "black" : "white";
       return this.logos
         .filter(l => l.name === "von-eckermann")
@@ -62,8 +67,8 @@ export default {
     }
   },
   methods: {
-    toggleSideNav() {
-      this.sideNavIsVisible = !this.sideNavIsVisible;
+    toggleOverlay() {
+      this.overlayIsVisible = !this.overlayIsVisible;
     },
     handleResize() {
       this.windowWidth = screen.width;
@@ -97,52 +102,13 @@ export default {
     display: none;
   }
 }
-.sidenav {
-  position: absolute;
-  background: $background;
-  right: 0;
-  width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  transition: 0.2s ease-out;
-  top: 86px;
-  opacity: 0.95;
-  overflow: hidden & ul {
-    padding: 0;
-    margin: 0;
-    z-index: 2;
-  }
 
-  & li {
-    padding: 20px 0 40px 0;
-    margin-left: 0;
-    border-bottom: 1px solid #ddcfcf;
-    font-size: $medium;
-  }
-  & a {
-    margin: 0 40px;
-    position: absolute;
-  }
-}
-.active {
-  transform: width;
-  width: 70%;
-  /*   width: auto; */
-}
-
-.sidenav-list {
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-.overlay {
+/* .overlay {
   height: 100vh;
   width: 100vw;
   position: absolute;
   z-index: 0;
-}
+} */
 
 .header-top {
   height: 10vw;
@@ -172,7 +138,7 @@ export default {
 }
 
 .von-eckermann {
-  height: 154%;
+  height: 65px;
 }
 
 .links {
