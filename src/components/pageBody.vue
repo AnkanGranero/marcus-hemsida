@@ -5,52 +5,93 @@
       <img class="page-image-desktop" :src="renderedPage[0].imageDesktop" alt />
       <img class="page-image-mobile" :src="renderedPage[0].imageMobile" alt />
     </div>
-
     <div class="body-wrapper">
-      <div class="box box-1">
-        <slot name="box-1"></slot>
+      <div v-for="(box, index) in boxesInUse" v-bind:key="index" class="box" :class="box.name">
+        <slot :name="box.name"></slot>
       </div>
-
-      <div class="box box-2">
-        <slot name="box-2" class="test"></slot>
-      </div>
-
-      <div class="box box-3">
-        <slot name="box-3"></slot>
-      </div>
-
-      <div class="box box-4">
-        <slot name="box-4"></slot>
-      </div>
-
-      <div class="box box-5">
-        <slot name="box-5"></slot>
+      <div class="box" :class="lastBox[0].name">
+        <slot :name="lastBox[0].name" />
+        <img :src="eckermannLogo.white" alt class="logo" />
       </div>
     </div>
   </div>
 </template>
 <script>
+import JQuery from "jquery";
+let $ = JQuery;
 export default {
   name: "PageBody",
   data() {
     return {
-      boxes: []
+      boxes: [
+        { name: "box-1" },
+        { name: "box-2" },
+        { name: "box-3" },
+        { name: "box-4" },
+        { name: "box-5" }
+      ],
+      boxesInUse: [],
+      lastBox: []
     };
   },
   props: {
-    propName: String,
-    boxCount: Number
+    propName: String
   },
   computed: {
     renderedPage() {
       return this.$store.getters.pages.filter(p => p.name === this.propName);
+    },
+    numberOfBoxes() {
+      return this.renderedPage[0].boxCount;
+    },
+
+    /*   lastBox() {
+      return this.boxes[numberOfBoxes - 1];
+    } */
+    eckermannLogo() {
+      return this.$store.getters.logos.filter(
+        l => l.name === "von-eckermann"
+      )[0];
     }
   },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+    this.populateBoxes();
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
   methods: {
-    /*     boxes(index) {
-      console.log("props", this.boxCount);
-      return "box-" + index;
-    } */
+    populateBoxes() {
+      let boxes = [];
+      console.log("numberOfboxes", this.numberOfBoxes);
+
+      let b = this.numberOfBoxes - 1;
+      for (let i = 0; i <= b; i++) {
+        boxes.push(this.boxes[i]);
+      }
+      this.lastBox.push(boxes.splice(b, 1)[0]);
+      console.log("lastbox", this.lastBox);
+
+      this.boxesInUse = boxes;
+      console.log(this.boxesInUse);
+    },
+    handleScroll() {
+      /* this.scrollPos = window.scrollY; */
+      /*     var el = document.querySelectorAll(".box"); */
+      $(".box")
+        .find("*")
+        .each(function(i) {
+          var bottomOfObject = $(this).position().top + $(this).outerHeight();
+          var bottomOfWindow = $(window).scrollTop() + $(window).height();
+          if (bottomOfWindow > bottomOfObject) {
+            $(this).animate({ opacity: 1, top: 0 }, 1000);
+          }
+          /*   if (bottomOfWindow < bottomOfObject) {
+            $(this).animate({ opacity: 0 }, 1000);
+          } */
+        });
+    }
   }
 };
 </script>
@@ -58,6 +99,8 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/scss/_variables.scss";
+@import "@/scss/_colors.scss";
+@import "@/scss/_sizes.scss";
 .box-top {
   justify-content: center;
   align-items: center;
@@ -80,14 +123,73 @@ export default {
 }
 
 .box {
-  /*  border-top: 1px solid white; */
+  display: flex;
+  flex-direction: column;
   background: rgb(97, 86, 86);
-  background: #615672;
+  background: $dark;
+  color: white;
+  padding: 3% 17%;
+  p {
+    margin: 0;
+  } /* 
+  h2 {
+    opacity: 0;
+  }
+  ul {
+    opacity: 0;
+  }
+  img {
+    opacity: 0;
+  } */
+}
+.box * {
+  opacity: 0;
+  position: relative;
+  top: 30px;
+}
+
+.box-1 {
+  background: $dark;
+  padding: 5% 17%;
+  color: white;
+  p {
+    color: antiquewhite;
+    color: white;
+  }
+}
+
+.box-2 {
+  p {
+    color: white;
+  }
+}
+.box-3 {
+  background: $dark;
   padding: 5% 17%;
   color: white;
   p {
     color: antiquewhite;
   }
+}
+
+.box-4 {
+  background: $light;
+  p {
+    color: white;
+  }
+}
+
+.background-image {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.logo {
+  height: 80px;
+  align-self: center;
+  margin-top: 15%;
 }
 
 .header {
@@ -109,8 +211,6 @@ export default {
   }
 }
 
-.box-2 {
-}
 @keyframes slide {
   0% {
     top: -5%;
@@ -126,6 +226,8 @@ h1 {
   margin-top: 5%;
   line-height: 57px;
   color: white;
+  animation-name: fadeIn;
+  animation-duration: 2.5s;
 }
 
 .body-wrapper {
@@ -137,6 +239,17 @@ h1 {
   ul {
     padding: unset;
     line-height: 55px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    margin-top: 9%;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 5%;
+    opacity: 1;
   }
 }
 </style>
