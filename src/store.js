@@ -9,29 +9,35 @@ export default new Vuex.Store({
     pages: [
        { name: "Home",
          image: "./images/Home.jpg",
-         imageMobile: "./images/Home-mobile-dark.jpg",
-         path: "/"
+         imageMobile: "./images/Home-mobile-bw.gif",
+         path: "/",
+         boxCount:1
         },
         { name: "Kontakt",
          image: "./images/Kontakt.png",
-         imageMobile: "./images/Kontakt-mobile-dark.jpg",
-         path: "/Kontakt"
+         imageMobile: "./images/Kontakt-mobile-bw.gif",
+         imageBackground: "./images/Home-kvadrat-light.gif",
+         path: "/Kontakt",
+         boxCount: 3
         },
         { name: "Coaching",
          imageDesktop: "./images/Coaching-mobile.jpg",
          imageMobile: "./images/Coaching-mobile-dark.jpg",
-         path: "/Coaching"
+         path: "/Coaching",
+         boxCount: 2
         },
          { name: "Typologi",
          image: "./images/Typologi.jpg",
           imageMobile: "./images/Typologi-mobile.jpg",
-         path: "/Typologi"
+         path: "/Typologi",
+         boxCount: 5
         }
       ],
       logos: [
         {name: "von-eckermann",
         black: "logos/von-eckermann-black.png",
-        white: "logos/von-eckermann-white.png"
+        white: "logos/von-eckermann-white.png",
+        alt: "Marcus Von Eckermann Logo"
       },
         {name: "hamburger",
         black: "logos/hamburger-black.png",

@@ -1,10 +1,13 @@
 <template>
   <div class="Typologi">
     <PageBody :propName="name">
-      <template v-slot:top-box></template>
-      <template v-slot:body-text>
+      <!--      <template v-slot:top-box></template>
+      <template v-slot:body-text>-->
+      <template v-slot:box-1>
         <h2>Mitt verktyg: Typologi</h2>
         <p>Jag är en coach med ett kraftfullt verktyg i portföljen som jag i sättet jag använder det på är relativt ensam om…</p>
+      </template>
+      <template v-slot:box-2>
         <h2>Vad kan jag göra med Typologi?</h2>
         <p>
           Vi börjar med att göra en analys av dig där vi sitter i ett samtal tillsammans.
@@ -14,7 +17,6 @@
           Det kan nämligen vara svårt för en coach att anpassa sitt lyssnande hela tiden till någon som inte passar dem.
           Det är ofta det som gör att coachen rekommenderar dig till en annan coach.
         </p>
-
         <p>
           Jag kan däremot skifta mitt lyssnande ut efter behov och efter en noggrann analys.
           Du kan vila lugnt i att jag optimerar vår process till en så effektiv grad som möjligt för att få ut maximalt med resultat.
@@ -22,14 +24,17 @@
           Det finns såklart självklara vinster med att ha en coach som förstår dig. I vilket fall som helst är mitt jobb som coach att ställa frågor,
           hålla i processen och hjälpa dig hitta i ditt eget innehåll du tar med dig in i samtalen.
         </p>
-
+      </template>
+      <template v-slot:box-3>
         <p>
           Vidare om du är intresserad mer av typologi och skulle vilja lära dig mer kan jag erbjuda utbildning i detta
           så att du själv kan få ett bättre grepp om människorna omkring dig men också såklart dig själv.
         </p>
-
+      </template>
+      <template v-slot:box-4>
         <router-link to="/Kontakt" class="boka-tid">Boka tid</router-link>
-
+      </template>
+      <template v-slot:box-4>
         <h2>För er som vill läsa mer…</h2>
 
         <p>

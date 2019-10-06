@@ -1,11 +1,11 @@
 <template>
   <div class="kontakt">
-    <PageBody :propName="name">
+    <PageBody :propName="name" :boxCount="4">
       <template v-slot:box-1>
-        <h2>Lorem ipsum</h2>
-        <p>Jag heter Marcus von Eckermann</p>
+        <h2>Lorem Ipsum</h2>
         <p>
-          Jag är modig, rak och nyfiken.
+          Jag heter Marcus von Eckermann.
+          <br />Jag är modig, rak och nyfiken.
           Jag har förmågan att bygga relation snabbt med lekfullhet som får andra att våga testa sig fram. Jag är avslappnad med ett leende som smittar.
           Jag har lätt att förstå andra och föder kreativitet i samtalet.
         </p>
