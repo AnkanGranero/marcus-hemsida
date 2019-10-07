@@ -20,13 +20,6 @@ export default new Vuex.Store({
          path: "/About",
          boxCount: 3
         },
-        { name: "Kontakt",
-         image: "./images/Kontakt.png",
-         imageMobile: "./images/Kontakt-mobile-bw.gif",
-         imageBackground: "./images/Home-kvadrat-light.gif",
-         path: "/Kontakt",
-         boxCount: 1
-        },
         { name: "Coaching",
          imageDesktop: "./images/Coaching-mobile.jpg",
          imageMobile: "./images/Coaching-mobile-dark.jpg",
@@ -38,6 +31,13 @@ export default new Vuex.Store({
           imageMobile: "./images/Typologi-mobile.jpg",
          path: "/Typologi",
          boxCount: 5
+        },
+        { name: "Kontakt",
+         image: "./images/Kontakt.png",
+         imageMobile: "./images/Kontakt-mobile-bw.gif",
+         imageBackground: "./images/Home-kvadrat-light.gif",
+         path: "/Kontakt",
+         boxCount: 1
         }
       ],
       logos: [
@@ -49,8 +49,21 @@ export default new Vuex.Store({
         {name: "hamburger",
         black: "logos/hamburger-black.png",
         white: "logos/hamburger-white.png"
-
         }
+      ],
+      socialMediaIcons: [
+        { name:"facebook" ,
+          url: "logos/facebook.gif",
+        href: "www.facebook.com"},
+        { name:"instagram" ,
+          url: "logos/instagram.gif",
+        href: "www.instagram.com"},
+        { name:"youtube" ,
+          url: "logos/youtube.gif",
+        href: "www.youtube.com"},
+        { name:"mail" ,
+          url: "logos/mail.gif",
+        href: "www.mail.com"}
       ]
   },
   mutations: {},
@@ -61,6 +74,9 @@ export default new Vuex.Store({
     },
     logos: state => {
       return state.logos
+    },
+    socialMediaIcons: state => {
+      return state.socialMediaIcons
     }
   }
 });

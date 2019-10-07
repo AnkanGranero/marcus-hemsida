@@ -19,6 +19,11 @@
       :overlayIsVisible="overlayIsVisible"
       :eckermannLogo="eckermannLogo"
     />
+    <!--     <div class="socialMediaIcons">
+      <a v-for="(icon, index) in icons" v-bind:key="index" :href="icon.href">
+        <img :src="icon.url" :alt="icon.name" class="icon" />
+      </a>
+    </div>-->
   </div>
 </template>
 
@@ -54,6 +59,9 @@ export default {
     },
     logos() {
       return this.$store.getters.logos;
+    },
+    icons() {
+      return this.$store.getters.socialMediaIcons;
     },
 
     hamburgerLogo() {
@@ -101,6 +109,9 @@ export default {
   @media only screen and (min-width: $pad) {
     display: none;
   }
+}
+.icon {
+  height: 100%;
 }
 
 /* .overlay {
