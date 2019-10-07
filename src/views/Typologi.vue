@@ -73,11 +73,13 @@
         </p>
       </template>
     </PageBody>
+    <Footer />
   </div>
 </template>
 
 <script>
 import PageBody from "../components/PageBody.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "Typologi",
@@ -85,7 +87,8 @@ export default {
     return { name: "Typologi" };
   },
   components: {
-    PageBody
+    PageBody,
+    Footer
   }
 };
 </script>

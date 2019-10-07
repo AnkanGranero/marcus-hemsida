@@ -10,30 +10,29 @@
         </ul>
       </template>
       <template v-slot:box-2>
-        <div class="wrapper">
-          <img src alt />
-          <p>
-            Jag arbetar med utgångspunkten att du är experten i ditt liv.
-            Jag hjälper dig att hitta lösningar på problem och gör det som är bra, ännu bättre genom frågor och verktyg.
-            Jag hjälper dig att se klarare i ditt beslutsfattande.
-          </p>
-        </div>
-        <p>Förstå vad coaching innebär och boka ett förutsättningslöst möte med mig på 20 min.</p>
+        <p>
+          Jag arbetar med utgångspunkten att du är experten i ditt liv.
+          Jag hjälper dig att hitta lösningar på problem och gör det som är bra, ännu bättre genom frågor och verktyg.
+          Jag hjälper dig att se klarare i ditt beslutsfattande.
+          Förstå vad coaching innebär och boka ett förutsättningslöst möte med mig på 20 min.
+        </p>
       </template>
     </PageBody>
+    <Footer />
   </div>
 </template>
 
 <script>
 import PageBody from "@/components/PageBody.vue";
-
+import Footer from "@/components/Footer.vue";
 export default {
   name: "Coaching",
   data() {
     return { name: "Coaching" };
   },
   components: {
-    PageBody
+    PageBody,
+    Footer
   }
 };
 </script>

@@ -1,11 +1,15 @@
 <template>
   <div class="home">
-    <PageBody :propName="name"></PageBody>
+    <Hero :propName="name"></Hero>
+    <Footer />
   </div>
 </template>
 
 <script>
 import PageBody from "@/components/PageBody.vue";
+import Footer from "@/components/Footer.vue";
+import Hero from "@/components/Hero.vue";
+
 export default {
   name: "home",
   data() {
@@ -14,7 +18,9 @@ export default {
     };
   },
   components: {
-    PageBody
+    PageBody,
+    Footer,
+    Hero
   }
 };
 </script>
