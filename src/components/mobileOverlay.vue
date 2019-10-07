@@ -19,12 +19,6 @@ export default {
       return this.$store.getters.pages;
     },
     eckermanLogo() {
-      console.log(
-        "logo",
-        this.$store.getters.logos.filter(l => l.name === "von-eckermann")[0]
-          .white
-      );
-
       return this.$store.getters.logos.filter(
         l => l.name === "von-eckermann"
       )[0];
@@ -63,7 +57,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* align-items: center; */
+  padding-left: 70px;
   a {
     color: white;
     position: relative;
@@ -72,6 +66,7 @@ export default {
 }
 .von-eckermann {
   align-self: center;
+  padding-bottom: 5%;
 }
 
 .sidenav {

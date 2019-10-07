@@ -11,7 +11,7 @@
       </div>
       <div class="box" :class="lastBox[0].name">
         <slot :name="lastBox[0].name" />
-        <img :src="eckermannLogo.white" alt class="logo" />
+        <!--  <img :src="eckermannLogo.white" alt class="logo" /> -->
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/scss/_variables.scss";
 @import "@/scss/_colors.scss";
 @import "@/scss/_sizes.scss";
@@ -169,11 +169,12 @@ export default {
   color: white;
   p {
     color: antiquewhite;
+    color: white;
   }
 }
 
 .box-4 {
-  background: $light;
+  background: $dark;
   p {
     color: white;
   }
@@ -239,6 +240,7 @@ h1 {
   ul {
     padding: unset;
     line-height: 55px;
+    /*     margin-bottom: 10%; */
   }
 }
 

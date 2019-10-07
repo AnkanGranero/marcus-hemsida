@@ -3,7 +3,7 @@
     <!-- <div v-if="sideNavIsVisible" class="overlay" @click="toggleSideNav"></div> -->
 
     <div class="header-top">
-      <img class="von-eckermann" :src="eckermannLogo" alt />
+      <img class="logo" :src="eckermannLogo" alt />
       <div class="links">
         <router-link v-for="page in pages" :key="page.name" :to="page.path">{{page.name}}</router-link>
       </div>
@@ -137,7 +137,7 @@ export default {
   }
 }
 
-.von-eckermann {
+.logo {
   height: 65px;
 }
 
