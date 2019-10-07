@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import Kontakt from "./views/Kontakt.vue";
 import Typologi from "./views/Typologi.vue";
 import Coaching from "./views/Coaching.vue";
+import About from "./views/About.vue"
 
 
 Vue.use(Router);
@@ -16,6 +17,11 @@ export default new Router({
       path: "/",
       name: "Home",
       component: Home
+    },
+       {
+      path: "/About",
+      name: "About",
+      component: About
     },
     {
       path: "/Kontakt",
@@ -30,6 +36,7 @@ export default new Router({
     { path: "/Coaching",
     name: "Coaching",
     component: Coaching
-  }
+  },
+  
   ]
 });

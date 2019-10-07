@@ -13,12 +13,19 @@ export default new Vuex.Store({
          path: "/",
          boxCount:1
         },
+          { name: "About",
+         image: "./images/Kontakt.png",
+         imageMobile: "./images/Kontakt-mobile-bw.gif",
+         imageBackground: "./images/Home-kvadrat-light.gif",
+         path: "/About",
+         boxCount: 3
+        },
         { name: "Kontakt",
          image: "./images/Kontakt.png",
          imageMobile: "./images/Kontakt-mobile-bw.gif",
          imageBackground: "./images/Home-kvadrat-light.gif",
          path: "/Kontakt",
-         boxCount: 3
+         boxCount: 1
         },
         { name: "Coaching",
          imageDesktop: "./images/Coaching-mobile.jpg",
