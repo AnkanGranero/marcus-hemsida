@@ -35,10 +35,17 @@ h1 {
 h2 {
   font-weight: 400;
   text-align: center;
-  margin-bottom: 20%;
+  margin-bottom: 15%;
   font-size: 3em;
   line-height: 55px;
   /*  color: #68d368; */
+}
+h3 {
+  text-align: center;
+}
+
+.von-eckermann {
+  height: 80px;
 }
 
 #nav a.router-link-exact-active {
@@ -49,6 +56,9 @@ li {
   list-style: none;
   font-weight: 300;
   font-size: 16px;
+}
+ul {
+  margin: 0;
 }
 
 a {
