@@ -1,3 +1,10 @@
 module.exports = {
-publicPath: "/marcus-hemsida"
+publicPath: "/marcus-hemsida",
+    css: {
+      loaderOptions: {
+        sass: {
+          data: `@import "@/scss/_variables.scss";`
+        }
+      }
+    }
 }
