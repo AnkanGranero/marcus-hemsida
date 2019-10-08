@@ -9,7 +9,7 @@
     "predeploy":"npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://:AnkanGranero.github.io/marcus-hemsida",
+  "homepage": "https://ankangranero.github.io/marcus-hemsida/",
   "dependencies": {
     "core-js": "^2.6.5",
     "gh-pages": "^2.1.1",
