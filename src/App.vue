@@ -16,10 +16,12 @@ export default {
 
 <style lang="scss">
 @import "@/scss/_variables.scss";
+@import "@/scss/_fonts.scss";
 
 @import url("https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Muli|Nunito+Sans|Quicksand|Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Be+Vietnam:100i,300,300i,400,400i,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Vidaloka&display=swap");
 #app {
   /*  font-family: "Oswald", sans-serif; */
   font-family: "Be Vietnam", sans-serif;
@@ -28,11 +30,13 @@ export default {
 }
 
 h1 {
+  font-family: $headerFont;
   font-size: 5em;
   font-weight: 300;
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
 }
 h2 {
+  font-family: $headerFont;
   font-weight: 400;
   text-align: center;
   margin-bottom: 15%;
@@ -41,6 +45,7 @@ h2 {
   /*  color: #68d368; */
 }
 h3 {
+  font-family: $headerFont;
   text-align: center;
 }
 
