@@ -1,5 +1,6 @@
 <template>
   <div class="Coaching">
+    <Hero :propName="name" />
     <PageBody :propName="name">
       <template v-slot:box-1>
         <h2>De generella grunderna för ett coachsamtal</h2>
@@ -23,6 +24,7 @@
 </template>
 
 <script>
+import Hero from "@/components/Hero.vue";
 import PageBody from "@/components/PageBody.vue";
 import Footer from "@/components/Footer.vue";
 export default {
@@ -31,6 +33,7 @@ export default {
     return { name: "Coaching" };
   },
   components: {
+    Hero,
     PageBody,
     Footer
   }

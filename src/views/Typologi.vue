@@ -1,5 +1,6 @@
 <template>
   <div class="Typologi">
+    <Hero :propName="name" />
     <PageBody :propName="name">
       <!--      <template v-slot:top-box></template>
       <template v-slot:body-text>-->
@@ -78,6 +79,7 @@
 </template>
 
 <script>
+import Hero from "@/components/Hero.vue";
 import PageBody from "../components/PageBody.vue";
 import Footer from "@/components/Footer.vue";
 
@@ -87,6 +89,7 @@ export default {
     return { name: "Typologi" };
   },
   components: {
+    Hero,
     PageBody,
     Footer
   }

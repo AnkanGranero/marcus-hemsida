@@ -1,5 +1,6 @@
 <template>
   <div class="About">
+    <Hero :propName="name" />
     <PageBody :propName="name" :boxCount="4">
       <template v-slot:box-1>
         <h2>Lorem Ipsum</h2>
@@ -35,6 +36,7 @@
 </template>
 
 <script>
+import Hero from "@/components/Hero.vue";
 import PageBody from "@/components/PageBody.vue";
 import FormComp from "@/components/FormComp.vue";
 import Footer from "@/components/Footer.vue";
@@ -45,6 +47,7 @@ export default {
     return { name: "About" };
   },
   components: {
+    Hero,
     PageBody,
     FormComp,
     Footer
