@@ -74,7 +74,11 @@ a {
 
 p {
   font-weight: 100;
-  font-size: 16px;
+  font-size: $small;
+  line-height: 27px;
+  @media only screen and (min-width: $mobile) {
+    font-size: 16px;
+  }
   @media only screen and (min-width: $pad) {
     font-size: 20px;
   }

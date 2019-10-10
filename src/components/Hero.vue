@@ -4,33 +4,33 @@
       <h1 class="header">{{propName}}</h1>
       <img class="page-image-desktop" :src="renderedPage[0].imageDesktop" alt />
       <img class="page-image-mobile" :src="renderedPage[0].imageMobile" alt />
-      </div>
-    </div></template>
+    </div>
+  </div>
+</template>
 
     <script>
-
 export default {
   name: "Hero",
   props: {
-      propName: String
+    propName: String
   },
   data() {
     return {
       name: "Hero"
     };
   },
-    computed: {
+  computed: {
     renderedPage() {
       return this.$store.getters.pages.filter(p => p.name === this.propName);
-    },
-
-}};
+    }
+  }
+};
 </script>
    <style lang="scss" >
 @import "@/scss/_variables.scss";
 @import "@/scss/_colors.scss";
 @import "@/scss/_sizes.scss";
-    .box-top {
+.box-top {
   justify-content: center;
   align-items: center;
 
@@ -51,7 +51,12 @@ export default {
   width: 100%;
 }
 .header {
-  position: absolute;
+  font-size: 60px;
+  @media only screen and (min-width: $mobile) {
+    position: absolute;
+    font-size: 6em;
+  }
+
   @media only screen and (min-width: $pad) {
     display: none;
   }
@@ -64,4 +69,4 @@ h1 {
   animation-name: fadeIn;
   animation-duration: 2.5s;
 }
-    </style>
+</style>

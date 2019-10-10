@@ -149,7 +149,7 @@ export default {
 }
 
 .logo {
-  height: 65px;
+  height: 150%;
 }
 
 .links {
