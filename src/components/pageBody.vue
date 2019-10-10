@@ -1,10 +1,10 @@
 <template>
   <div class="page-wrapper">
-    <div class="box-top">
+    <!--     <div class="box-top">
       <h1 class="header">{{propName}}</h1>
       <img class="page-image-desktop" :src="renderedPage[0].imageDesktop" alt />
       <img class="page-image-mobile" :src="renderedPage[0].imageMobile" alt />
-    </div>
+    </div>-->
     <div class="body-wrapper">
       <div v-for="(box, index) in boxesInUse" v-bind:key="index" class="box" :class="box.name">
         <slot :name="box.name"></slot>
@@ -77,21 +77,29 @@ export default {
       console.log(this.boxesInUse);
     },
     handleScroll() {
-      /* this.scrollPos = window.scrollY; */
-      /*     var el = document.querySelectorAll(".box"); */
       $(".box")
         .find("*")
         .each(function(i) {
           var bottomOfObject = $(this).position().top + $(this).outerHeight();
+          console.log(bottomOfObject);
           var bottomOfWindow = $(window).scrollTop() + $(window).height();
           if (bottomOfWindow > bottomOfObject) {
             $(this).animate({ opacity: 1, top: 0 }, 1000);
           }
-          /*   if (bottomOfWindow < bottomOfObject) {
-            $(this).animate({ opacity: 0 }, 1000);
-          } */
         });
     }
+    /*     handleScroll() {
+      $(".box")
+        .find("*")
+        .each(function(i) {
+          var topOfObject = $(this).position().top;
+          var bottomOfWindow = $(window).scrollTop() + $(window).height();
+          var timeToShine = $(window).scrollTop() + $(window).height() * 0.9;
+          if (topOfObject > timeToShine) {
+            $(this).animate({ opacity: 1, top: 0 }, 1000);
+          }
+        });
+    } */
   }
 };
 </script>
@@ -146,6 +154,23 @@ export default {
   opacity: 0;
   position: relative;
   top: 30px;
+
+  h2 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}
+.box p,
+li {
+  font-size: $small;
+  line-height: 27px;
+  @media only screen and (min-width: $mobile) {
+    font-size: 16px;
+    line-height: 27px;
+  }
+}
+li {
+  margin: 10px;
 }
 
 .box-1 {
@@ -187,11 +212,11 @@ export default {
   z-index: -2;
 }
 
-.logo {
+/* .logo {
   height: 80px;
   align-self: center;
   margin-top: 15%;
-}
+} */
 
 .header {
   position: absolute;
