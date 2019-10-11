@@ -13,6 +13,8 @@
         <p>
           Vi börjar med att göra en analys av dig där vi sitter i ett samtal tillsammans.
           Jag kommer att ställa frågor, förklara begrepp och göra det jag kan få att få ett så optimalt grepp som möjligt om din personlighet.
+        </p>
+        <p>
           Du kommer att hjälpa mig och vara med mig i ett partnerskap på vägen mot att definiera med 100 % träffsäkerhet vilken personlighetstyp du är.
           Med detta kommer jag ha tillgång till att förstå dig ÄNNU bättre i samtalet oavsett om vi är olika och ser på världen på olika sätt.
           Det kan nämligen vara svårt för en coach att anpassa sitt lyssnande hela tiden till någon som inte passar dem.
@@ -44,7 +46,7 @@
         </p>
 
         <h3>Vill du veta din personlighetstyp och förstå ditt kognitiva språk?</h3>
-        <p>Typologi är det jag kallar ett psykologiskt verktyg vars grund är byggt av Carl Jungs kognitiva funktioner. Bokstavskombinationerna och dess struktur kommer från Meyers & Briggs.</p>
+        <p>Typologi är det jag kallar ett psykologiskt verktyg vars grund är byggt av Carl Jungs kognitiva funktioner. Bokstavskombinationerna och dess struktur kommer från Myers & Briggs.</p>
 
         <ul>
           <li>Det finns 4 grundfunktioner:</li>
