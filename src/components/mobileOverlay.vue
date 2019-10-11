@@ -68,23 +68,4 @@ export default {
   align-self: center;
   padding-bottom: 5%;
 }
-
-.sidenav {
-  /*   ul {
-    padding: 0;
-    margin: 0;
-    z-index: 2;
-  } */
-  /*   & li {
-    padding: 20px 0 40px 0;
-    margin-left: 0;
-    border-bottom: 1px solid #ddcfcf;
-    font-size: $medium;
-  } */
-  /*   & a {
-    margin: 0 40px;
-    position: absolute;
-    color: white;
-  } */
-}
 </style>

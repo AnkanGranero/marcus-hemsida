@@ -40,9 +40,11 @@ h2 {
   font-weight: 400;
   text-align: center;
   margin-bottom: 15%;
-  font-size: 3em;
+  font-size: 40px;
   line-height: 55px;
-  /*  color: #68d368; */
+  @media only screen and (min-width: $mobile) {
+    font-size: 3em;
+  }
 }
 h3 {
   font-family: $headerFont;

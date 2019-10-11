@@ -1,17 +1,11 @@
 <template>
   <div class="page-wrapper">
-    <!--     <div class="box-top">
-      <h1 class="header">{{propName}}</h1>
-      <img class="page-image-desktop" :src="renderedPage[0].imageDesktop" alt />
-      <img class="page-image-mobile" :src="renderedPage[0].imageMobile" alt />
-    </div>-->
     <div class="body-wrapper">
       <div v-for="(box, index) in boxesInUse" v-bind:key="index" class="box" :class="box.name">
         <slot :name="box.name"></slot>
       </div>
       <div class="box" :class="lastBox[0].name">
         <slot :name="lastBox[0].name" />
-        <!--  <img :src="eckermannLogo.white" alt class="logo" /> -->
       </div>
     </div>
   </div>
@@ -44,10 +38,6 @@ export default {
     numberOfBoxes() {
       return this.renderedPage[0].boxCount;
     },
-
-    /*   lastBox() {
-      return this.boxes[numberOfBoxes - 1];
-    } */
     eckermannLogo() {
       return this.$store.getters.logos.filter(
         l => l.name === "von-eckermann"
@@ -56,15 +46,19 @@ export default {
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
+
     this.populateBoxes();
   },
+  mounted() {
+    setTimeout(this.handleScroll, 500);
+  },
+
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     populateBoxes() {
       let boxes = [];
-      console.log("numberOfboxes", this.numberOfBoxes);
 
       let b = this.numberOfBoxes - 1;
       for (let i = 0; i <= b; i++) {
@@ -81,25 +75,15 @@ export default {
         .find("*")
         .each(function(i) {
           var bottomOfObject = $(this).position().top + $(this).outerHeight();
-          console.log(bottomOfObject);
+          console.log("bottomOfObjects", bottomOfObject);
           var bottomOfWindow = $(window).scrollTop() + $(window).height();
-          if (bottomOfWindow > bottomOfObject) {
-            $(this).animate({ opacity: 1, top: 0 }, 1000);
+          console.log("bottomOfwindow", bottomOfWindow);
+
+          if (bottomOfWindow > bottomOfObject * 0.8) {
+            $(this).animate({ opacity: 1, top: 0 }, 2500);
           }
         });
     }
-    /*     handleScroll() {
-      $(".box")
-        .find("*")
-        .each(function(i) {
-          var topOfObject = $(this).position().top;
-          var bottomOfWindow = $(window).scrollTop() + $(window).height();
-          var timeToShine = $(window).scrollTop() + $(window).height() * 0.9;
-          if (topOfObject > timeToShine) {
-            $(this).animate({ opacity: 1, top: 0 }, 1000);
-          }
-        });
-    } */
   }
 };
 </script>
@@ -114,7 +98,6 @@ export default {
   align-items: center;
 
   display: flex;
-  /*   border-bottom: 1px solid white; */
   @media only screen and (min-width: $pad) {
     width: 100%;
   }
@@ -139,21 +122,15 @@ export default {
   padding: 3% 17%;
   p {
     margin: 0;
-  } /* 
-  h2 {
-    opacity: 0;
   }
-  ul {
-    opacity: 0;
+  @media only screen and (min-width: $pad) {
+    padding: 3% 22%;
   }
-  img {
-    opacity: 0;
-  } */
 }
 .box * {
   opacity: 0;
   position: relative;
-  top: 30px;
+  top: 15px;
 
   h2 {
     font-size: 40px;
@@ -175,7 +152,7 @@ li {
 
 .box-1 {
   background: $dark;
-  padding: 5% 17%;
+
   color: white;
   p {
     color: antiquewhite;
@@ -190,7 +167,7 @@ li {
 }
 .box-3 {
   background: $dark;
-  padding: 5% 17%;
+
   color: white;
   p {
     color: antiquewhite;
@@ -212,38 +189,10 @@ li {
   z-index: -2;
 }
 
-/* .logo {
-  height: 80px;
-  align-self: center;
-  margin-top: 15%;
-} */
-
 .header {
   position: absolute;
   @media only screen and (min-width: $pad) {
     display: none;
-  }
-}
-
-.box-1 {
-  @media only screen and (min-width: $pad) {
-    position: absolute;
-    animation-name: slide;
-    animation-duration: 1s;
-    top: 20%;
-    background: rgba(248, 248, 248, 0.8);
-    color: black;
-    padding: 10%;
-  }
-}
-
-@keyframes slide {
-  0% {
-    top: -5%;
-  }
-
-  100% {
-    top: 20%;
   }
 }
 
@@ -258,14 +207,12 @@ h1 {
 
 .body-wrapper {
   display: flex;
-  /* position: absolute; */
   flex-direction: column;
   top: -11%;
 
   ul {
     padding: unset;
     line-height: 55px;
-    /*     margin-bottom: 10%; */
   }
 }
 
