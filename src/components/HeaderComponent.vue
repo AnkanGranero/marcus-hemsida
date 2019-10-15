@@ -1,13 +1,19 @@
 <template>
   <div class="header-wrapper">
     <!-- <div v-if="sideNavIsVisible" class="overlay" @click="toggleSideNav"></div> -->
-
-    <div class="header-top">
-      <img class="logo" :src="eckermannLogo" alt />
-      <div class="links">
-        <router-link v-for="page in pages" :key="page.name" :to="page.path">{{page.name}}</router-link>
+    <div class="top-container">
+      <div class="header-top">
+        <img class="logo" :src="eckermannLogo" alt />
+        <div class="links">
+          <router-link v-for="page in pages" :key="page.name" :to="page.path">{{page.name}}</router-link>
+        </div>
+        <img class="hamburger" :src="hamburgerLogo" @click="toggleOverlay" />
       </div>
-      <img class="hamburger" :src="hamburgerLogo" @click="toggleOverlay" />
+      <div class="socialMediaIcons">
+        <a v-for="(icon, index) in icons" v-bind:key="index" :href="icon.href">
+          <img :src="icon.url" :alt="icon.name" class="icon" />
+        </a>
+      </div>
     </div>
 
     <!--     <div class="sidenav" :class="{active : sideNavIsVisible}">
@@ -19,11 +25,6 @@
       :overlayIsVisible="overlayIsVisible"
       :eckermannLogo="eckermannLogo"
     />
-    <!--     <div class="socialMediaIcons">
-      <a v-for="(icon, index) in icons" v-bind:key="index" :href="icon.href">
-        <img :src="icon.url" :alt="icon.name" class="icon" />
-      </a>
-    </div>-->
   </div>
 </template>
 
@@ -95,6 +96,13 @@ export default {
 @import "@/scss/_colors.scss";
 @import "@/scss/_sizes.scss";
 
+.top-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+}
+
 .header-wrapper {
   position: relative;
   z-index: 3;
@@ -112,6 +120,13 @@ export default {
 }
 .icon {
   height: 100%;
+
+  height: 29px;
+  margin: 10px;
+  margin-bottom: 5px;
+}
+.socialMediaIcons {
+  height: 40px;
 }
 
 /* .overlay {
@@ -130,7 +145,7 @@ export default {
   padding: 20px 10px;
   font-size: 19px;
   /*   background: rgba(0, 0, 0, 0.4); */
-  position: absolute;
+
   width: -webkit-fill-available;
   border-bottom: 1px solid white;
 

@@ -2,7 +2,7 @@
   <div class="page-wrapper">
     <div class="box-top">
       <h1 class="header">{{propName}}</h1>
-      <!--       <img class="page-image-desktop" :src="renderedPage[0].imageDesktop" alt /> -->
+      <img class="page-image-desktop" :src="renderedPage[0].image" alt />
       <img class="page-image-mobile" :src="renderedPage[0].imageMobile" alt />
     </div>
   </div>
@@ -33,11 +33,13 @@ export default {
 .box-top {
   justify-content: center;
   align-items: center;
-
+  background: $dark;
   display: flex;
 
   @media only screen and (min-width: $pad) {
     width: 100%;
+    position: relative;
+    top: 16vh;
   }
 }
 
