@@ -42,6 +42,10 @@ export default {
       return this.$store.getters.logos.filter(
         l => l.name === "von-eckermann"
       )[0];
+    },
+    contentfulPages() {
+      return this.$store.getters.contentfulPages();
+      console.log("hej");
     }
   },
   created() {

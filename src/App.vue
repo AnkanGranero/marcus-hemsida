@@ -8,9 +8,13 @@
 
 <script>
 import HeaderComponent from "./components/HeaderComponent";
+
 export default {
   name: "App",
-  components: { HeaderComponent }
+  components: { HeaderComponent },
+  mounted() {
+    this.$store.dispatch("populateStore");
+  }
 };
 </script>
 
