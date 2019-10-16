@@ -11,17 +11,17 @@ export default new Vuex.Store({
       contentfulPages: [],
   
     pages: [
-       { name: "Home",
-         image: "./images/Home.jpg",
+       { name: "Hem",
+         image: "./images/Hem.jpg",
          imageMobile: "./images/Home-mobile-dark.jpg",
          path: "/",
          boxCount:1
         },
-          { name: "About",
+          { name: "Om",
          image: "./images/Kontakt.png",
          imageMobile: "./images/Kontakt.jpg",
          imageBackground: "./images/Home-kvadrat-light.gif",
-         path: "/About",
+         path: "/Om",
          boxCount: 3
         },
         { name: "Coaching",

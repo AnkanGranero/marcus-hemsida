@@ -1,10 +1,10 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Hem from "./views/Hem.vue";
 import Kontakt from "./views/Kontakt.vue";
 import Typologi from "./views/Typologi.vue";
 import Coaching from "./views/Coaching.vue";
-import About from "./views/About.vue"
+import Om from "./views/Om.vue"
 
 
 Vue.use(Router);
@@ -15,13 +15,13 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "Home",
-      component: Home
+      name: "Hem",
+      component: Hem
     },
        {
-      path: "/About",
-      name: "About",
-      component: About
+      path: "/Om",
+      name: "Om",
+      component: Om
     },
     {
       path: "/Kontakt",

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="hem">
     <Hero :propName="name"></Hero>
     <PageBody :propName="name">
       <template v-slot:box-1>
@@ -24,10 +24,10 @@ import Footer from "@/components/Footer.vue";
 import Hero from "@/components/Hero.vue";
 
 export default {
-  name: "home",
+  name: "Hem",
   data() {
     return {
-      name: "Home"
+      name: "Hem"
     };
   },
   components: {

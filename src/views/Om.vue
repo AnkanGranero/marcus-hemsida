@@ -1,5 +1,5 @@
 <template>
-  <div class="About">
+  <div class="Om">
     <Hero :propName="name" />
     <PageBody :propName="name" :boxCount="4">
       <template v-slot:box-1>
@@ -42,9 +42,9 @@ import FormComp from "@/components/FormComp.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
-  name: "About",
+  name: "Om",
   data() {
-    return { name: "About" };
+    return { name: "Om" };
   },
   components: {
     Hero,
