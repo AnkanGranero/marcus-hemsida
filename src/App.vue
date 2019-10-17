@@ -2,18 +2,57 @@
   <div id="app">
     <Header-component class="desktop-header"></Header-component>
 
-    <router-view />
+    <router-view :pageInfo="thisPage" />
   </div>
 </template>
 
 <script>
 import HeaderComponent from "./components/HeaderComponent";
+import { createClient } from "./components/contentful.js";
+
+const client = createClient();
 
 export default {
   name: "App",
+  data() {
+    return {
+      pages: []
+    };
+  },
   components: { HeaderComponent },
+  methods: {
+    async fetchPages() {
+      try {
+        let entries = await client.getEntries({
+          content_type: "hemsida",
+          include: 3
+        });
+        this.pages = entries.items[0].fields.pages;
+
+        console.log("PAGES", this.pages);
+      } catch (err) {
+        console.log("fel", err);
+      }
+    }
+  },
+  computed: {
+    thisPage() {
+      return this.pages.filter(p => p.fields.title === this.$route.name);
+    },
+    pageImage() {
+      let answer;
+      if (this.thisPage[0]) {
+        if (this.thisPage[0].fields.mobileImage) {
+          //försök få bort denna dubbel-if
+          answer = this.thisPage[0].fields.mobileImage.fields.file.url;
+        }
+      }
+      return answer;
+    }
+  },
   mounted() {
-    this.$store.dispatch("populateStore");
+    /* this.$store.dispatch("populateStore"); */
+    this.fetchPages();
   }
 };
 </script>
