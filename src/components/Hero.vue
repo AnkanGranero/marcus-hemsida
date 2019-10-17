@@ -2,8 +2,8 @@
   <div class="page-wrapper">
     <div class="box-top">
       <h1 class="header">{{propName}}</h1>
-      <img class="page-image-desktop" :src="renderedPage[0].image" alt />
-      <img class="page-image-mobile" :src="renderedPage[0].imageMobile" alt />
+      <img class="page-image-desktop" :src="image" alt />
+      <img class="page-image-mobile" :src="image" alt />
     </div>
   </div>
 </template>
@@ -12,7 +12,8 @@
 export default {
   name: "Hero",
   props: {
-    propName: String
+    propName: String,
+    image: String
   },
   data() {
     return {

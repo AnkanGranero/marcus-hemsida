@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <Header-component class="desktop-header"></Header-component>
+    <!--     <pre> {{  pageInfo.textBoxes[0].header}}</pre>
+    <pre> {{ pageInfo.textBoxes[0].bodyText.content[0].content[0].value}}</pre>
 
-    <router-view :pageInfo="thisPage" />
+    <div v-for="(boxes, index) in pageInfo.textBoxes" :key="index">
+      <h1>{{ header}}</h1>
+    </div>-->
+    <router-view :pageInfo="pageInfo" :pageImage="pageInfo.image" />
   </div>
 </template>
 
@@ -47,6 +52,32 @@ export default {
           answer = this.thisPage[0].fields.mobileImage.fields.file.url;
         }
       }
+      return answer;
+    },
+    pageInfo() {
+      let answer = {
+        textBoxes: [],
+        image: ""
+      };
+      if (this.thisPage[0]) {
+        if (this.thisPage[0].fields.mobileImage) {
+          //försök få bort denna dubbel-if
+          answer.image = this.thisPage[0].fields.mobileImage.fields.file.url;
+        }
+        /*   if (this.thisPage[0].fields.textBoxes) {
+          answer["textBoxes"] = this.thisPage[0].fields.textBoxes.map(
+            textbox => textbox.fields
+          );
+        } */
+        if (this.thisPage[0].fields.textBoxes) {
+          this.thisPage[0].fields.textBoxes.forEach(element => {
+            answer.textBoxes.push(element.fields);
+          });
+          textbox => textbox.fields;
+        }
+      }
+      console.log("the answer", answer);
+
       return answer;
     }
   },

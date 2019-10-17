@@ -1,7 +1,7 @@
 <template>
   <div class="kontakt">
-    <Hero :propName="name" />
-    <!-- <PageBody :propName="name"></PageBody> -->
+    <Hero :propName="name" :image="pageInfo.image" />
+    <pre>{{ pageInfo}}</pre>
     <div class="formContainer">
       <FormComp />
     </div>
@@ -25,6 +25,9 @@ export default {
     FormComp,
     Hero,
     Footer
+  },
+  props: {
+    pageInfo: Array
   }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="Coaching">
-    <Hero :propName="name" />
+    <Hero :propName="name" :image="pageInfo.image" />
     <PageBody :propName="name">
       <template v-slot:box-1>
         <h2>De generella grunderna för ett coachsamtal</h2>
@@ -36,6 +36,9 @@ export default {
     Hero,
     PageBody,
     Footer
+  },
+  props: {
+    pageInfo: Array
   }
 };
 </script>

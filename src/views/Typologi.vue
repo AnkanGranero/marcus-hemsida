@@ -1,6 +1,6 @@
 <template>
   <div class="Typologi">
-    <Hero :propName="name" />
+    <Hero :propName="name" :image="pageInfo.image" />
     <PageBody :propName="name">
       <!--      <template v-slot:top-box></template>
       <template v-slot:body-text>-->
@@ -94,6 +94,9 @@ export default {
     Hero,
     PageBody,
     Footer
+  },
+  props: {
+    pageInfo: Object
   }
 };
 </script>

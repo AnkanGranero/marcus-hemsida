@@ -1,6 +1,6 @@
 <template>
   <div class="hem">
-    <Hero :propName="name"></Hero>
+    <Hero :propName="name" :image="pageInfo.image"></Hero>
     <PageBody :propName="name">
       <template v-slot:box-1>
         <h2>Lorem ipsum</h2>
@@ -34,6 +34,9 @@ export default {
     PageBody,
     Footer,
     Hero
+  },
+  props: {
+    pageInfo: Array
   }
 };
 </script>
