@@ -1,57 +1,60 @@
 <template>
   <div class="page-wrapper">
     <div class="body-wrapper">
-      <div v-for="(box, index) in boxesInUse" v-bind:key="index" class="box" :class="box.name">
-        <slot :name="box.name"></slot>
-      </div>
-      <div class="box" :class="lastBox[0].name">
-        <slot :name="lastBox[0].name" />
+      <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
+        <h2 v-text="textBox.header" />
+
+        <div v-for="(text, index) in textBox.bodyText.content" :key="index" class="box">
+          <p v-text="removeQuotes(text.content[0].value)"></p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
 import JQuery from "jquery";
+
 let $ = JQuery;
 export default {
   name: "PageBody",
-  data() {
-    return {
-      boxes: [
-        { name: "box-1" },
-        { name: "box-2" },
-        { name: "box-3" },
-        { name: "box-4" },
-        { name: "box-5" }
-      ],
-      boxesInUse: [],
-      lastBox: []
-    };
-  },
+
   props: {
-    propName: String
+    propName: String,
+    pageInfo: Object
   },
   computed: {
     renderedPage() {
       return this.$store.getters.pages.filter(p => p.name === this.propName);
-    },
-    numberOfBoxes() {
-      return this.renderedPage[0].boxCount;
     },
     eckermannLogo() {
       return this.$store.getters.logos.filter(
         l => l.name === "von-eckermann"
       )[0];
     },
-    contentfulPages() {
-      return this.$store.getters.contentfulPages();
-      console.log("hej");
+    pageText() {
+      return this.pageInfo.textBoxes;
+    },
+
+    contentfulRenderedPage() {
+      return this.$store.getters.contentfulPages
+        .filter(p => p.fields.title === this.propName)
+        .map(item => item.fields);
+    },
+    mobileImage() {
+      let mobileImage = this.contentfulRenderedPage.map(item => item.images[0]);
+      let mobileImage2 = this.contentfulRenderedPage;
+      console.log("images", mobileImage2[0]);
+
+      /*  this.contentfulRenderedPage.map(item => item.images)[0] */
+
+      /* .filter(item => item.fields.title.endsWith("mobile")) */
+
+      return this.contentfulRenderedPage.images;
     }
   },
+
   created() {
     window.addEventListener("scroll", this.handleScroll);
-
-    this.populateBoxes();
   },
   mounted() {
     setTimeout(this.handleScroll, 500);
@@ -61,27 +64,15 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    populateBoxes() {
-      let boxes = [];
-
-      let b = this.numberOfBoxes - 1;
-      for (let i = 0; i <= b; i++) {
-        boxes.push(this.boxes[i]);
-      }
-      this.lastBox.push(boxes.splice(b, 1)[0]);
-      console.log("lastbox", this.lastBox);
-
-      this.boxesInUse = boxes;
-      console.log(this.boxesInUse);
+    removeQuotes(str) {
+      return str.replace(/\u00A0/g, " ");
     },
     handleScroll() {
       $(".box")
         .find("*")
         .each(function(i) {
           var bottomOfObject = $(this).position().top + $(this).outerHeight();
-          console.log("bottomOfObjects", bottomOfObject);
           var bottomOfWindow = $(window).scrollTop() + $(window).height();
-          console.log("bottomOfwindow", bottomOfWindow);
 
           if (bottomOfWindow > bottomOfObject * 0.8) {
             $(this).animate({ opacity: 1, top: 0 }, 2500);

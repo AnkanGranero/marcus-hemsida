@@ -1,13 +1,7 @@
 <template>
   <div id="app">
     <Header-component class="desktop-header"></Header-component>
-    <!--     <pre> {{  pageInfo.textBoxes[0].header}}</pre>
-    <pre> {{ pageInfo.textBoxes[0].bodyText.content[0].content[0].value}}</pre>
-
-    <div v-for="(boxes, index) in pageInfo.textBoxes" :key="index">
-      <h1>{{ header}}</h1>
-    </div>-->
-    <router-view :pageInfo="pageInfo" :pageImage="pageInfo.image" />
+    <router-view :pageInfo="pageInfo" />
   </div>
 </template>
 
@@ -33,27 +27,14 @@ export default {
           include: 3
         });
         this.pages = entries.items[0].fields.pages;
-
-        console.log("PAGES", this.pages);
-      } catch (err) {
-        console.log("fel", err);
-      }
+      } catch (err) {}
     }
   },
   computed: {
     thisPage() {
       return this.pages.filter(p => p.fields.title === this.$route.name);
     },
-    pageImage() {
-      let answer;
-      if (this.thisPage[0]) {
-        if (this.thisPage[0].fields.mobileImage) {
-          //försök få bort denna dubbel-if
-          answer = this.thisPage[0].fields.mobileImage.fields.file.url;
-        }
-      }
-      return answer;
-    },
+
     pageInfo() {
       let answer = {
         textBoxes: [],
@@ -64,11 +45,6 @@ export default {
           //försök få bort denna dubbel-if
           answer.image = this.thisPage[0].fields.mobileImage.fields.file.url;
         }
-        /*   if (this.thisPage[0].fields.textBoxes) {
-          answer["textBoxes"] = this.thisPage[0].fields.textBoxes.map(
-            textbox => textbox.fields
-          );
-        } */
         if (this.thisPage[0].fields.textBoxes) {
           this.thisPage[0].fields.textBoxes.forEach(element => {
             answer.textBoxes.push(element.fields);
@@ -76,13 +52,10 @@ export default {
           textbox => textbox.fields;
         }
       }
-      console.log("the answer", answer);
-
       return answer;
     }
   },
   mounted() {
-    /* this.$store.dispatch("populateStore"); */
     this.fetchPages();
   }
 };

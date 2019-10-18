@@ -54,7 +54,7 @@ export default {
         i => i.name === this.currentRouteName
       );
     },
-
+    //alla getters från store kanske borde ersättas eller kanske vara en array som sätts av contentful
     pages() {
       return this.$store.getters.pages;
     },

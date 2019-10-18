@@ -79,27 +79,8 @@ export default new Vuex.Store({
     
   },
   actions: {
-      async populateStore(contex) {
-            try {
-      let entries = await client.getEntries({
-        content_type: "hemsida",
-        include: 3
-      });
-      contex.commit("mutatePages",entries.items[0].fields.pages )
-      console.log("hej");
       
-      console.log("entries", entries.items[0].fields.pages.map(p => p.fields));
-
-      
-      
-    } catch (err) {
-      console.log(err);
-    }
   }
-
-      }
-
-
   ,
   getters: {
     pages: state => {
@@ -111,9 +92,7 @@ export default new Vuex.Store({
     logos: state => {
       return state.logos
     },
-    socialMediaIcons: state => {
-      return state.socialMediaIcons
-    }
+ 
   },
 
 });

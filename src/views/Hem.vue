@@ -1,7 +1,7 @@
 <template>
   <div class="hem">
     <Hero :propName="name" :image="pageInfo.image"></Hero>
-    <PageBody :propName="name">
+    <PageBody :propName="name" :pageInfo="pageInfo">
       <template v-slot:box-1>
         <h2>Lorem ipsum</h2>
         <p>
@@ -36,7 +36,7 @@ export default {
     Hero
   },
   props: {
-    pageInfo: Array
+    pageInfo: Object
   }
 };
 </script>
