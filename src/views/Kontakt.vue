@@ -1,6 +1,10 @@
 <template>
   <div class="kontakt">
-    <Hero :propName="name" :image="pageInfo.image" />
+    <Hero
+      :propName="name"
+      :mobileImage="pageInfo.mobileImage"
+      :desktopImage="pageInfo.desktopImage"
+    />
     <div class="formContainer">
       <FormComp />
     </div>

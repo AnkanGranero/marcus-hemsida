@@ -38,12 +38,22 @@ export default {
     pageInfo() {
       let answer = {
         textBoxes: [],
-        image: ""
+        mobileImage: "",
+        desktopImage: "",
+        backgroundImage: ""
       };
       if (this.thisPage[0]) {
         if (this.thisPage[0].fields.mobileImage) {
           //försök få bort denna dubbel-if
-          answer.image = this.thisPage[0].fields.mobileImage.fields.file.url;
+          answer.mobileImage = this.thisPage[0].fields.mobileImage.fields.file.url;
+        }
+        if (this.thisPage[0].fields.desktopImage) {
+          //försök få bort denna dubbel-if
+          answer.desktopImage = this.thisPage[0].fields.desktopImage.fields.file.url;
+        }
+        if (this.thisPage[0].fields.backgroundImage) {
+          //försök få bort denna dubbel-if
+          answer.backgroundImage = this.thisPage[0].fields.backgroundImage.fields.file.url;
         }
         if (this.thisPage[0].fields.textBoxes) {
           this.thisPage[0].fields.textBoxes.forEach(element => {
@@ -81,6 +91,9 @@ h1 {
   font-size: 5em;
   font-weight: 300;
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
+  @media only screen and (min-width: $pad) {
+    font-size: 4em;
+  }
 }
 h2 {
   font-family: $headerFont;
@@ -91,6 +104,9 @@ h2 {
   line-height: 55px;
   @media only screen and (min-width: $mobile) {
     font-size: 3em;
+  }
+  @media only screen and (min-width: $pad) {
+    font-size: 4em;
   }
 }
 h3 {

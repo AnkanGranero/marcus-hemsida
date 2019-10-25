@@ -1,33 +1,37 @@
 <template>
   <div class="form-wrapper">
-    <h3>Kontakta mig</h3>
-    <div class="input-wrapper">
-      <label for="namn">
-        Namn
-        <span>(måste anges)</span>
-      </label>
-      <input v-model="namn" />
-    </div>
+    <form method="post" name="my-email-form" action="form-to-email.php">
+      <h3>Kontakta mig</h3>
+      <div class="input-wrapper">
+        <label for="namn">
+          Namn
+          <span>(måste anges)</span>
+        </label>
+        <input v-model="namn" name="namn" />
+      </div>
 
-    <div class="input-wrapper">
-      <label for="mail">
-        Mail
+      <div class="input-wrapper">
+        <label for="mail">
+          Mail
+          <span>(måste anges)</span>
+        </label>
+        <input v-model="mail" name="mail" />
+      </div>
+      <p>
+        <!--         Vad gäller ditt ärende
         <span>(måste anges)</span>
-      </label>
-      <input v-model="mail" />
-    </div>
-    <p>
-      Vad gäller ditt ärende
-      <span>(måste anges)</span>
-    </p>
-    <select v-model="selected">
-      <option disabled value>Välj ärende</option>
-      <option>Privat coaching</option>
-      <option>Företag coaching</option>
-      <option>Typologi</option>
-    </select>
-    <span>Kommentar</span>
-    <textarea v-model="message" />
+      </p>
+      <select v-model="selected" name="ärende">
+        <option disabled value>Välj ärende</option>
+        <option>Privat coaching</option>
+        <option>Företag coaching</option>
+        <option>Typologi</option>
+        </select>-->
+        <span>Kommentar</span>
+        <textarea v-model="message" name="message" />
+        <button type="submit" class="submit" name="submit">Skicka</button>
+      </p>
+    </form>
   </div>
 </template>
 
@@ -54,8 +58,15 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 5%;
-  margin: 0 15%;
+  margin: 0 10%;
   background: white;
+  @media only screen and (min-width: $tablet) {
+    margin: 0 15%;
+  }
+
+  @media only screen and (min-width: $pad) {
+    margin: 0 25%;
+  }
 
   input {
     outline: 0;
@@ -63,6 +74,12 @@ export default {
     border-bottom: 1px solid black;
     max-width: 250px;
     font-size: $small;
+  }
+  .submit {
+    border: 1px solid black;
+    margin: 5%;
+    width: 40%;
+    align-self: center;
   }
   span {
     color: grey;

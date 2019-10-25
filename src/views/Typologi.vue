@@ -1,7 +1,11 @@
 <template>
   <div class="Typologi">
-    <Hero :propName="name" :image="pageInfo.image" />
-    <PageBody :propName="name" :pageInfo="pageInfo"></PageBody>
+    <Hero
+      :propName="name"
+      :mobileImage="pageInfo.mobileImage"
+      :desktopImage="pageInfo.desktopImage"
+    />
+    <PageBody :propName="name" :pageInfo="pageInfo" :backgroundImage="pageInfo.backgroundImage"></PageBody>
     <Footer />
   </div>
 </template>
@@ -21,6 +25,14 @@ export default {
     PageBody,
     Footer
   },
+  computed: {
+    pageInfoTest() {
+      console.log(this.pageInfo);
+
+      return this.pageInfo;
+    }
+  },
+
   props: {
     pageInfo: Object
   }

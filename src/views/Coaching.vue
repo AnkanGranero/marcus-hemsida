@@ -1,6 +1,10 @@
 <template>
   <div class="Coaching">
-    <Hero :propName="name" :image="pageInfo.image" />
+    <Hero
+      :propName="name"
+      :mobileImage="pageInfo.mobileImage"
+      :desktopImage="pageInfo.desktopImage"
+    />
     <PageBody :propName="name" :pageInfo="pageInfo"></PageBody>
     <Footer />
   </div>

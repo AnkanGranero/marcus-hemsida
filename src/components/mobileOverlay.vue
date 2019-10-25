@@ -43,6 +43,7 @@ export default {
   justify-content: space-between;
   display: flex;
   flex-direction: column;
+  z-index: 6;
 
   overflow: hidden;
 }

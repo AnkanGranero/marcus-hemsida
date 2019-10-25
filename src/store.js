@@ -58,16 +58,19 @@ export default new Vuex.Store({
       socialMediaIcons: [
         { name:"facebook" ,
           url: "logos/fb.gif",
-        href: "www.facebook.com"},
+        href: "https://www.facebook.com/voneckermanncoaching/"},
         { name:"instagram" ,
           url: "logos/instagram.gif",
-        href: "www.instagram.com"},
+        href: "https://voneckermann.podbean.com/"},
         { name:"youtube" ,
           url: "logos/youtube.gif",
-        href: "www.youtube.com"},
+        href: "https://www.youtube.com/channel/UCXNefcZ1O1inwwbqXk61JJg"},
         { name:"mail" ,
           url: "logos/mail.gif",
-        href: "www.mail.com"}
+        href: "mailto:marcusvoneckermann@gmail.com"}
+      ],
+      backgroundImages: [
+        { url: "./images/chris.jpg"}
       ]
   },
   mutations: {
@@ -92,6 +95,12 @@ export default new Vuex.Store({
     logos: state => {
       return state.logos
     },
+    socialMediaIcons: state => {
+      return state.socialMediaIcons
+    },
+    backgroundImages: state => {
+      return state.backgroundImages
+    }
  
   },
 

@@ -2,12 +2,15 @@
   <div class="page-wrapper">
     <div class="body-wrapper">
       <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
-        <h2 v-text="textBox.header" />
-
+        <h2 v-text="textBox.header" class="zz-top" />
+        <!--         <img :v-if="textBox.image" :src="getImage(textBox)" class="background-image" class="zz-top"/>
+        -->
         <div v-for="(text, index) in textBox.bodyText.content" :key="index" class="box">
-          <p v-text="removeQuotes(text.content[0].value)"></p>
+          <p v-text="removeQuotes(text.content[0].value)" class="zz-top"></p>
         </div>
       </div>
+      <div class="background-solid-overlay"></div>
+      <div class="background-overlay" :style="background"></div>
     </div>
   </div>
 </template>
@@ -20,9 +23,14 @@ export default {
 
   props: {
     propName: String,
-    pageInfo: Object
+    pageInfo: Object,
+    backgroundImage: String
   },
+
   computed: {
+    background() {
+      return ` background: url("https:${this.backgroundImage}"); background-size: cover`;
+    },
     renderedPage() {
       return this.$store.getters.pages.filter(p => p.name === this.propName);
     },
@@ -65,7 +73,29 @@ export default {
   },
   methods: {
     removeQuotes(str) {
+      console.log(this.pageInfo.textBoxes);
+
       return str.replace(/\u00A0/g, " ");
+    },
+    getImage(str) {
+      if (str.image) {
+        console.log("hej", str.image);
+
+        return str.image.fields.file.url;
+      }
+    },
+    changeBackgroundVar(variant) {
+      $(".background-overlay").css({
+        background: `url(${variant}) `,
+        "background-size": "cover",
+        opacity: 0
+      });
+    },
+    /*    changeBackgroundVar(variant) {
+      $(".background-overlay").addClass(variant);
+    }, */
+    changeOpacity(value, className) {
+      $(className).css({ opacity: value });
     },
     handleScroll() {
       $(".box")
@@ -73,11 +103,96 @@ export default {
         .each(function(i) {
           var bottomOfObject = $(this).position().top + $(this).outerHeight();
           var bottomOfWindow = $(window).scrollTop() + $(window).height();
-
           if (bottomOfWindow > bottomOfObject * 0.8) {
             $(this).animate({ opacity: 1, top: 0 }, 2500);
           }
+          //byta bakgrund på overlay
+
+          /*    if (y < 500) {
+            $(".background-overlay").css({ opacity: 0 });
+          }
+          if (y > 500) {
+            $(".background-overlay").css({ opacity: 0.5 });
+          } */
+
+          /*        if (y > 500) {
+            $(".background-overlay").animate({ opacity: 0.5 }, 2500);
+            console.log("hallå", y);
+          } */
+          /*   if (value > 0.5) {
+            $(".background-overlay").animate({ opacity: 0 }, 2500);
+            console.log("nu ska den försvinna");
+          } */
+
+          /* else {
+            $(".background-overlay").css({ opacity: 0.4 });
+            console.log("hejjjjj", y);
+          } */
+
+          /*   if (value > 0.5) {
+            $(".background-overlay").css({ opacity: value });
+             } */
+          /* else {
+            $(".background-overlay").css({ opacity: 0.4 });
+            console.log("hejjjjj", y);
+          } */
+
+          /*      switch (scrollTop) {
+            case scrollTop < 0:
+              $(".background-overlay").animate({ opacity: 0 }, 2500);
+              // code block
+              console.log("hejja");
+
+              break;
+            case scrollTop > 500:
+              $(".background-overlay").animate({ opacity: 0.5 }, 2500);
+              // code block
+              break;
+            case scrollTop > 1000:
+              $(".background-overlay").animate({ opacity: 0 }, 2500);
+              // code block
+              break;
+
+            // code block
+          } */
         });
+
+      let totalHeight = document.body.clientHeight;
+      console.log(totalHeight);
+
+      let y = $(window).scrollTop();
+      console.log(y);
+
+      switch (true) {
+        case y < 500:
+          this.changeOpacity(0, ".background-solid-overlay");
+          this.changeOpacity(0, ".background-overlay");
+
+          console.log("hej");
+
+          break;
+        case y < totalHeight * 0.5:
+          this.changeOpacity(0.7, ".background-solid-overlay");
+          this.changeOpacity(0, ".background-overlay");
+
+          break;
+
+        case y < totalHeight:
+          this.changeOpacity(0.5, ".background-overlay");
+          this.changeOpacity(0, ".background-solid-overlay");
+          /* this.changeBackgroundVar("/marcus-hemsida/img/tom.ce30f7f2.jpg"); */
+          console.log("tjaaa");
+          break;
+
+        /*   case y < 1700:
+          this.changeBackgroundVar("/marcus-hemsida/img/ali.05ae46c1.jpg");
+          break;
+
+        case y < 3000:
+          this.changeOpacity(0.3);
+
+          break; */
+      }
     }
   }
 };
@@ -88,6 +203,37 @@ export default {
 @import "@/scss/_variables.scss";
 @import "@/scss/_colors.scss";
 @import "@/scss/_sizes.scss";
+
+.background-overlay {
+  /* background: url("./tom.jpg") no-repeat; */
+  background-size: cover;
+  position: absolute;
+  height: 100vh;
+  width: -webkit-fill-available;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  transition: opacity 3s;
+}
+.background-solid-overlay {
+  background: black;
+  width: -webkit-fill-available;
+  background-size: cover;
+  position: fixed;
+  height: 1000px;
+  z-index: 1;
+  top: 0;
+  opacity: 0;
+  transition: opacity 3s;
+}
+
+.backgroundVar1 {
+  background: url("./tom.jpg") no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+
 .box-top {
   justify-content: center;
   align-items: center;
@@ -96,6 +242,9 @@ export default {
   @media only screen and (min-width: $pad) {
     width: 100%;
   }
+}
+.zz-top {
+  z-index: 2;
 }
 
 .page-image-desktop {
@@ -109,10 +258,14 @@ export default {
 }
 
 .box {
+  position: relative;
   display: flex;
   flex-direction: column;
   background: rgb(97, 86, 86);
   background: $dark;
+  /*   background: url("../assets/ali.jpg");
+  background-size: cover; */
+
   color: white;
   padding: 3% 17%;
   p {
@@ -130,17 +283,31 @@ export default {
   h2 {
     font-size: 40px;
     line-height: 44px;
+    z-index: 3;
   }
 }
 .box p,
 li {
+  z-index: 2;
   font-size: $small;
   line-height: 27px;
   @media only screen and (min-width: $mobile) {
     font-size: 16px;
     line-height: 27px;
   }
+  @media only screen and (min-width: $pad) {
+    font-size: 21px;
+  }
 }
+
+.background-image {
+  position: absolute;
+  /* height: 300px; */
+  width: 100%;
+  z-index: 1;
+  left: 0;
+}
+
 li {
   margin: 10px;
 }
@@ -155,39 +322,17 @@ li {
   }
 }
 
-.box-2 {
-  p {
-    color: white;
-  }
-}
-.box-3 {
-  background: $dark;
-
-  color: white;
-  p {
-    color: antiquewhite;
-    color: white;
-  }
-}
-
-.box-4 {
-  background: $dark;
-  p {
-    color: white;
-  }
-}
-
-.background-image {
+/* .background-image {
   position: absolute;
   left: 0;
   width: 100%;
   z-index: -2;
-}
+} */
 
 .header {
   position: absolute;
   @media only screen and (min-width: $pad) {
-    display: none;
+    /* display: none; */
   }
 }
 

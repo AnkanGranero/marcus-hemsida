@@ -1,19 +1,11 @@
 <template>
   <div class="hem">
-    <Hero :propName="name" :image="pageInfo.image"></Hero>
-    <PageBody :propName="name" :pageInfo="pageInfo">
-      <template v-slot:box-1>
-        <h2>Lorem ipsum</h2>
-        <p>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          <!--     </p>
-          <p>-->
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        </p>
-      </template>
-    </PageBody>
+    <Hero
+      :propName="name"
+      :mobileImage="pageInfo.mobileImage"
+      :desktopImage="pageInfo.desktopImage"
+    ></Hero>
+    <PageBody :propName="name" :pageInfo="pageInfo"></PageBody>
     <Footer />
   </div>
 </template>

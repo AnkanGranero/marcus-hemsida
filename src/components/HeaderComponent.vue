@@ -69,10 +69,10 @@ export default {
       return this.logos.filter(l => l.name === "hamburger").map(l => l.white);
     },
     eckermannLogo() {
-      const color = this.windowWidth > 1024 ? "black" : "white";
+      /* const color = this.windowWidth > 1024 ? "black" : "white"; */
       return this.logos
         .filter(l => l.name === "von-eckermann")
-        .map(l => l[color]);
+        .map(l => l["white"]);
     }
   },
   methods: {
@@ -112,18 +112,14 @@ export default {
   width: 100%;
 }
 
-.hamburger {
-  height: 120%;
-  @media only screen and (min-width: $pad) {
-    display: none;
-  }
-}
 .icon {
-  height: 100%;
-
-  height: 29px;
-  margin: 10px;
-  margin-bottom: 5px;
+  height: 23px;
+  margin: 5px;
+  @media only screen and (min-width: $mobile) {
+    height: 29px;
+    margin: 10px;
+    margin-bottom: 5px;
+  }
 }
 .socialMediaIcons {
   height: 40px;
@@ -138,33 +134,52 @@ export default {
 
 .header-top {
   height: 10vw;
-  max-height: 50px;
+  max-height: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 10px;
+  padding: 20px 5px;
   font-size: 19px;
   /*   background: rgba(0, 0, 0, 0.4); */
 
   width: -webkit-fill-available;
   border-bottom: 1px solid white;
 
+  @media only screen and (min-width: $tablet) {
+    max-height: 50px;
+    padding: 20px 10px;
+  }
+
   @media only screen and (min-width: $pad) {
-    position: static;
+    /*   position: static;
     background: $background;
-    box-shadow: 1px 2px 4px rgba(240, 240, 240, 0.3);
+    box-shadow: 1px 2px 4px rgba(240, 240, 240, 0.3); */
   }
 
   & a {
     font-weight: 200;
     font-size: 1.3em;
-    color: #2c3e50;
+    color: white;
     text-decoration: none;
   }
 }
 
 .logo {
-  height: 150%;
+  height: 53px;
+
+  @media only screen and (min-width: $tablet) {
+    height: 150%;
+  }
+}
+.hamburger {
+  height: 47px;
+  @media only screen and (min-width: $tablet) {
+    height: 120%;
+  }
+
+  @media only screen and (min-width: $pad) {
+    display: none;
+  }
 }
 
 .links {

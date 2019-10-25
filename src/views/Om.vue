@@ -1,10 +1,11 @@
 <template>
   <div class="Om">
-    <Hero :propName="name" :image="pageInfo.image" />
-    <PageBody :propName="name" :pageInfo="pageInfo">
-      <template v-slot:box-1></template>
-      <template v-slot:box-2></template>
-    </PageBody>
+    <Hero
+      :propName="name"
+      :mobileImage="pageInfo.mobileImage"
+      :desktopImage="pageInfo.desktopImage"
+    />
+    <PageBody :propName="name" :pageInfo="pageInfo"></PageBody>
     <div class="formContainer">
       <FormComp />
     </div>
