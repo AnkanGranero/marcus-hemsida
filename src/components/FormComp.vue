@@ -76,10 +76,12 @@ export default {
     font-size: $small;
   }
   .submit {
-    border: 1px solid black;
-    margin: 5%;
+    border: 1px solid grey;
+    margin-top: 5%;
+    height: 35px;
     width: 40%;
-    align-self: center;
+    font-size:15px;
+    /* align-self: center; */
   }
   span {
     color: grey;
