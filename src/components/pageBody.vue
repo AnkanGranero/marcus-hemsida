@@ -9,7 +9,8 @@
           <p v-text="removeQuotes(text.content[0].value)" class="zz-top"></p>
         </div>
       </div>
-      <div class="background-solid-overlay"></div>
+      <!--       <div class="background-solid-overlay"></div>
+      -->
       <div class="background-overlay" :style="background"></div>
     </div>
   </div>
@@ -104,7 +105,7 @@ export default {
           var bottomOfObject = $(this).position().top + $(this).outerHeight();
           var bottomOfWindow = $(window).scrollTop() + $(window).height();
           if (bottomOfWindow > bottomOfObject * 0.8) {
-            $(this).animate({ opacity: 1, top: 0 }, 2500);
+            $(this).css({ opacity: 1, top: 0 });
           }
           //byta bakgrund på overlay
 
@@ -165,23 +166,27 @@ export default {
 
       switch (true) {
         case y < 500:
-          this.changeOpacity(0, ".background-solid-overlay");
           this.changeOpacity(0, ".background-overlay");
-
+          $(".box").css({ "background-color": "rgb(61, 55, 55)" }); //this is $dark
           console.log("hej");
 
           break;
         case y < totalHeight * 0.5:
-          this.changeOpacity(0.7, ".background-solid-overlay");
+          $(".box").css({
+            "background-color": "black",
+            transition: "background-color 5s linear"
+          });
           this.changeOpacity(0, ".background-overlay");
 
           break;
 
-        case y < totalHeight:
-          this.changeOpacity(0.5, ".background-overlay");
-          this.changeOpacity(0, ".background-solid-overlay");
-          /* this.changeBackgroundVar("/marcus-hemsida/img/tom.ce30f7f2.jpg"); */
-          console.log("tjaaa");
+        case y < totalHeight * 0.6:
+          this.changeOpacity(0, ".background-overlay");
+          $(".box").css({
+            "background-color": "rgb(61, 55, 55)",
+            transition: "background-color 1.5s linear"
+          }); //this is $dark
+
           break;
 
         /*   case y < 1700:
@@ -262,12 +267,16 @@ export default {
   display: flex;
   flex-direction: column;
   background: rgb(97, 86, 86);
-  background: $dark;
+  background-color: $dark;
   /*   background: url("../assets/ali.jpg");
   background-size: cover; */
+  -webkit-transition: background-color 5s linear;
+  -ms-transition: background-color 5s linear;
+  transition: background-color 5s linear;
 
   color: white;
   padding: 3% 17%;
+  margin: -1px 0;
   p {
     margin: 0;
   }
@@ -279,6 +288,7 @@ export default {
   opacity: 0;
   position: relative;
   top: 15px;
+  transition: opacity 2.5s linear, top 2.5s linear;
 
   h2 {
     font-size: 40px;
