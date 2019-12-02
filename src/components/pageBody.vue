@@ -1,6 +1,7 @@
 <template>
   <div class="page-wrapper">
     <div class="body-wrapper">
+      <sticky-elevator :class="elevatorIsShowing" class="elevator" @click.native="scrollToTop" />
       <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
         <h2 v-text="textBox.header" class="zz-top" />
         <!--         <img :v-if="textBox.image" :src="getImage(textBox)" class="background-image" class="zz-top"/>
@@ -17,10 +18,19 @@
 </template>
 <script>
 import JQuery from "jquery";
+import StickyElevator from "./StickyElevator";
 
 let $ = JQuery;
 export default {
   name: "PageBody",
+  components: {
+    StickyElevator
+  },
+  data() {
+    return {
+      windowTop: 0
+    };
+  },
 
   props: {
     propName: String,
@@ -42,6 +52,11 @@ export default {
     },
     pageText() {
       return this.pageInfo.textBoxes;
+    },
+    elevatorIsShowing() {
+      return {
+        active: this.windowTop > 850
+      };
     },
 
     contentfulRenderedPage() {
@@ -73,6 +88,13 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
+    scrollToTop() {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
+    },
     removeQuotes(str) {
       console.log(this.pageInfo.textBoxes);
 
@@ -99,6 +121,8 @@ export default {
       $(className).css({ opacity: value });
     },
     handleScroll() {
+      this.windowTop = window.scrollY;
+
       $(".box")
         .find("*")
         .each(function(i) {
@@ -107,68 +131,16 @@ export default {
           if (bottomOfWindow > bottomOfObject * 0.8) {
             $(this).css({ opacity: 1, top: 0 });
           }
-          //byta bakgrund på overlay
-
-          /*    if (y < 500) {
-            $(".background-overlay").css({ opacity: 0 });
-          }
-          if (y > 500) {
-            $(".background-overlay").css({ opacity: 0.5 });
-          } */
-
-          /*        if (y > 500) {
-            $(".background-overlay").animate({ opacity: 0.5 }, 2500);
-            console.log("hallå", y);
-          } */
-          /*   if (value > 0.5) {
-            $(".background-overlay").animate({ opacity: 0 }, 2500);
-            console.log("nu ska den försvinna");
-          } */
-
-          /* else {
-            $(".background-overlay").css({ opacity: 0.4 });
-            console.log("hejjjjj", y);
-          } */
-
-          /*   if (value > 0.5) {
-            $(".background-overlay").css({ opacity: value });
-             } */
-          /* else {
-            $(".background-overlay").css({ opacity: 0.4 });
-            console.log("hejjjjj", y);
-          } */
-
-          /*      switch (scrollTop) {
-            case scrollTop < 0:
-              $(".background-overlay").animate({ opacity: 0 }, 2500);
-              // code block
-              console.log("hejja");
-
-              break;
-            case scrollTop > 500:
-              $(".background-overlay").animate({ opacity: 0.5 }, 2500);
-              // code block
-              break;
-            case scrollTop > 1000:
-              $(".background-overlay").animate({ opacity: 0 }, 2500);
-              // code block
-              break;
-
-            // code block
-          } */
         });
 
       let totalHeight = document.body.clientHeight;
-      console.log(totalHeight);
 
       let y = $(window).scrollTop();
-      console.log(y);
 
       switch (true) {
         case y < 500:
           this.changeOpacity(0, ".background-overlay");
           $(".box").css({ "background-color": "rgb(61, 55, 55)" }); //this is $dark
-          console.log("hej");
 
           break;
         case y < totalHeight * 0.5:
@@ -208,6 +180,14 @@ export default {
 @import "@/scss/_variables.scss";
 @import "@/scss/_colors.scss";
 @import "@/scss/_sizes.scss";
+
+.elevator {
+  display: none;
+}
+
+.active {
+  display: flex;
+}
 
 .background-overlay {
   /* background: url("./tom.jpg") no-repeat; */
