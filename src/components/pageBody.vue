@@ -2,6 +2,7 @@
   <div class="page-wrapper">
     <div class="body-wrapper">
       <sticky-elevator :class="elevatorIsShowing" class="elevator" @click.native="scrollToTop" />
+
       <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
         <h2 v-text="textBox.header" class="zz-top" />
         <!--         <img :v-if="textBox.image" :src="getImage(textBox)" class="background-image" class="zz-top"/>
@@ -9,7 +10,14 @@
         <div v-for="(text, index) in textBox.bodyText.content" :key="index" class="box">
           <p v-text="removeQuotes(text.content[0].value)" class="zz-top"></p>
         </div>
+        <div class="link">
+          <a v-if="textBox.link" :href="textBox.link.fields.link">
+            <!-- <pre>{{ textBox.link.fields.link }}</pre> -->
+            <img :src="linkImg" :alt="pageInfo.link.name" />
+          </a>
+        </div>
       </div>
+
       <!--       <div class="background-solid-overlay"></div>
       -->
       <div class="background-overlay" :style="background"></div>
@@ -52,6 +60,11 @@ export default {
     },
     pageText() {
       return this.pageInfo.textBoxes;
+    },
+    linkImg() {
+      if (this.pageInfo.link) {
+        return this.pageInfo.link.picture.fields.file.url;
+      }
     },
     elevatorIsShowing() {
       return {
@@ -122,12 +135,12 @@ export default {
     },
     handleScroll() {
       this.windowTop = window.scrollY;
-
+      var bottomOfWindow = $(window).scrollTop() + $(window).height();
       $(".box")
         .find("*")
         .each(function(i) {
           var bottomOfObject = $(this).position().top + $(this).outerHeight();
-          var bottomOfWindow = $(window).scrollTop() + $(window).height();
+
           if (bottomOfWindow > bottomOfObject * 0.8) {
             $(this).css({ opacity: 1, top: 0 });
           }
@@ -138,12 +151,12 @@ export default {
       let y = $(window).scrollTop();
 
       switch (true) {
-        case y < 500:
+        case bottomOfWindow < 700:
           this.changeOpacity(0, ".background-overlay");
           $(".box").css({ "background-color": "rgb(61, 55, 55)" }); //this is $dark
 
           break;
-        case y < totalHeight * 0.5:
+        case bottomOfWindow < totalHeight * 0.6:
           $(".box").css({
             "background-color": "black",
             transition: "background-color 5s linear"
@@ -151,12 +164,14 @@ export default {
           this.changeOpacity(0, ".background-overlay");
 
           break;
+          console.log("TH", totalHeight);
+          console.log("windowTop");
 
-        case y < totalHeight * 0.6:
+        case bottomOfWindow < totalHeight * 0.67:
           this.changeOpacity(0, ".background-overlay");
           $(".box").css({
             "background-color": "rgb(61, 55, 55)",
-            transition: "background-color 1.5s linear"
+            transition: "background-color 2s linear"
           }); //this is $dark
 
           break;
@@ -182,11 +197,19 @@ export default {
 @import "@/scss/_sizes.scss";
 
 .elevator {
-  display: none;
+  z-index: -2;
+  pointer-events: none;
+  visibility: none;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 1s linear;
 }
 
 .active {
+  visibility: visible;
+  pointer-events: visible;
+  opacity: 1;
   display: flex;
+  z-index: 3;
 }
 
 .background-overlay {
@@ -262,6 +285,22 @@ export default {
   }
   @media only screen and (min-width: $pad) {
     padding: 3% 22%;
+  }
+}
+.link {
+  padding-top: 10%;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    cursor: pointer;
+  }
+  img {
+    width: 100%;
+    @media only screen and (min-width: $pad) {
+      width: 50%;
+    }
   }
 }
 .box * {

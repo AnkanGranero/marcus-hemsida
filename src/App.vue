@@ -40,7 +40,8 @@ export default {
         textBoxes: [],
         mobileImage: "",
         desktopImage: "",
-        backgroundImage: ""
+        backgroundImage: "",
+        link: {}
       };
       if (this.thisPage[0]) {
         if (this.thisPage[0].fields.mobileImage) {
@@ -60,6 +61,9 @@ export default {
             answer.textBoxes.push(element.fields);
           });
           textbox => textbox.fields;
+        }
+        if (this.thisPage[0].fields.link) {
+          answer.link = this.thisPage[0].fields.link.fields;
         }
       }
       return answer;
