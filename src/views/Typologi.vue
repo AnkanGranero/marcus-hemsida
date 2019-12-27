@@ -27,8 +27,6 @@ export default {
   },
   computed: {
     pageInfoTest() {
-      console.log(this.pageInfo);
-
       return this.pageInfo;
     }
   },

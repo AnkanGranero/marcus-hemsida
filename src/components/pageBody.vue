@@ -3,16 +3,44 @@
     <div class="body-wrapper">
       <sticky-elevator :class="elevatorIsShowing" class="elevator" @click.native="scrollToTop" />
 
-      <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
-        <h2 v-text="textBox.header" class="zz-top" />
-        <!--         <img :v-if="textBox.image" :src="getImage(textBox)" class="background-image" class="zz-top"/>
-        -->
-        <div v-for="(text, index) in textBox.bodyText.content" :key="index" class="box">
+      <!-- <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
+      <h2 v-text="textBox.header" class="zz-top" />-->
+
+      <!-- <div v-for="(text, index) in textBox.bodyText.content" :key="index" class="box">
           <p v-text="removeQuotes(text.content[0].value)" class="zz-top"></p>
         </div>
         <div class="link">
           <a v-if="textBox.link" :href="textBox.link.fields.link">
-            <!-- <pre>{{ textBox.link.fields.link }}</pre> -->
+            <img :src="linkImg" :alt="pageInfo.link.name" />
+          </a>
+        </div>
+      </div>-->
+
+      <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
+        <h2 v-text="textBox.fields.header" class="zz-top" />
+
+        <div class="bodyText" :class="onlyText(textBox)">
+          <div class="innerText">
+            <p
+              v-for="(text, index) in textBox.fields.bodyText.content"
+              :key="index"
+              class="InnerBox zz-top"
+              v-text="removeQuotes(text.content[0].value)"
+            ></p>
+          </div>
+          <div class="innerText" v-if="textBox.fields.list">
+            <ul class="innerList">
+              <li
+                v-for="(text, index) in textBox.fields.list.content"
+                :key="index"
+                v-text="removeQuotes(text.content[0].value)"
+              ></li>
+            </ul>
+          </div>
+        </div>
+        <div></div>
+        <div class="link" v-if="textBox.fields.link">
+          <a :href="textBox.link.fields.link">
             <img :src="linkImg" :alt="pageInfo.link.name" />
           </a>
         </div>
@@ -80,7 +108,6 @@ export default {
     mobileImage() {
       let mobileImage = this.contentfulRenderedPage.map(item => item.images[0]);
       let mobileImage2 = this.contentfulRenderedPage;
-      console.log("images", mobileImage2[0]);
 
       /*  this.contentfulRenderedPage.map(item => item.images)[0] */
 
@@ -101,6 +128,9 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
+    onlyText(textBox) {
+      return { onlyText: !textBox.fields.list };
+    },
     scrollToTop() {
       window.scroll({
         top: 0,
@@ -109,14 +139,10 @@ export default {
       });
     },
     removeQuotes(str) {
-      console.log(this.pageInfo.textBoxes);
-
       return str.replace(/\u00A0/g, " ");
     },
     getImage(str) {
       if (str.image) {
-        console.log("hej", str.image);
-
         return str.image.fields.file.url;
       }
     },
@@ -151,7 +177,7 @@ export default {
       let y = $(window).scrollTop();
 
       switch (true) {
-        case bottomOfWindow < 700:
+        case bottomOfWindow < 970:
           this.changeOpacity(0, ".background-overlay");
           $(".box").css({ "background-color": "rgb(61, 55, 55)" }); //this is $dark
 
@@ -164,8 +190,6 @@ export default {
           this.changeOpacity(0, ".background-overlay");
 
           break;
-          console.log("TH", totalHeight);
-          console.log("windowTop");
 
         case bottomOfWindow < totalHeight * 0.67:
           this.changeOpacity(0, ".background-overlay");
@@ -201,7 +225,7 @@ export default {
   pointer-events: none;
   visibility: none;
   opacity: 0;
-  transition: visibility 0.5s, opacity 1s linear;
+  transition: visibility 0.5s, opacity 0.5s linear;
 }
 
 .active {
@@ -278,13 +302,29 @@ export default {
   transition: background-color 5s linear;
 
   color: white;
-  padding: 3% 17%;
-  margin: -1px 0;
+  padding: 3% 5%;
+  margin: -3% 0;
+
+  .bodyText {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .innerText {
+      width: 47%;
+    }
+    .innerList li {
+      margin: 3% 0;
+    }
+  }
+  .onlyText {
+    justify-content: center;
+  }
+
   p {
     margin: 0;
   }
   @media only screen and (min-width: $pad) {
-    padding: 3% 22%;
+    padding: 3% 10%;
   }
 }
 .link {
@@ -319,7 +359,7 @@ export default {
 li {
   z-index: 2;
   font-size: $small;
-  line-height: 27px;
+  line-height: 20px;
   @media only screen and (min-width: $mobile) {
     font-size: 16px;
     line-height: 27px;

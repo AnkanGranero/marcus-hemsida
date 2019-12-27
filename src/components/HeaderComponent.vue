@@ -106,6 +106,7 @@ export default {
 .header-wrapper {
   position: relative;
   z-index: 3;
+
   /*   overflow: hidden; */
 }
 .page-image {
@@ -125,13 +126,6 @@ export default {
   height: 40px;
 }
 
-/* .overlay {
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  z-index: 0;
-} */
-
 .header-top {
   height: 10vw;
   max-height: 15px;
@@ -140,7 +134,7 @@ export default {
   align-items: center;
   padding: 20px 5px;
   font-size: 19px;
-  /*   background: rgba(0, 0, 0, 0.4); */
+  background: rgba(0, 0, 0, 0.2);
 
   width: -webkit-fill-available;
   border-bottom: 1px solid white;

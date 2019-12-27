@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer box">
     <img :src="logo.white" :alt="logo.alt" class="von-eckermann" />
   </div>
 </template>
@@ -34,6 +34,7 @@ export default {
   display: flex;
   justify-content: center;
   padding-top: 5%;
+  padding-bottom: 1%;
 }
 .von-eckermann {
   align-self: center;

@@ -38,11 +38,21 @@ export default {
     pageInfo() {
       let answer = {
         textBoxes: [],
+        textBoxesNew: [],
         mobileImage: "",
         desktopImage: "",
         backgroundImage: "",
         link: {}
       };
+      let page = this.thisPage ? this.thisPage[0] : "";
+      if (page) {
+        answer.textBoxes = page.fields.textBoxes ? page.fields.textBoxes : "";
+        console.log("textboxes", answer.textBoxes);
+
+        // let textBoxesArr = textFolder.filter(
+        //   item => item.fields.type === "textBox"
+        // );
+      }
       if (this.thisPage[0]) {
         if (this.thisPage[0].fields.mobileImage) {
           //försök få bort denna dubbel-if
@@ -56,12 +66,12 @@ export default {
           //försök få bort denna dubbel-if
           answer.backgroundImage = this.thisPage[0].fields.backgroundImage.fields.file.url;
         }
-        if (this.thisPage[0].fields.textBoxes) {
-          this.thisPage[0].fields.textBoxes.forEach(element => {
-            answer.textBoxes.push(element.fields);
-          });
-          textbox => textbox.fields;
-        }
+        // if (this.thisPage[0].fields.textBoxes) {
+        //   this.thisPage[0].fields.textBoxes.forEach(element => {
+        //     answer.textBoxes.push(element.fields);
+        //   });
+        //   textbox => textbox.fields;
+        // }
         if (this.thisPage[0].fields.link) {
           answer.link = this.thisPage[0].fields.link.fields;
         }
@@ -103,8 +113,8 @@ h2 {
   font-family: $headerFont;
   font-weight: 400;
   text-align: center;
-  margin-bottom: 15%;
-  font-size: 40px;
+  margin: 5% 0 7% 0;
+  font-size: 35px;
   line-height: 55px;
   @media only screen and (min-width: $mobile) {
     font-size: 3em;

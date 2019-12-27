@@ -1,12 +1,36 @@
 <template>
   <div class="form-wrapper">
-    <!--        <form method="post" name="my-email-form" action="form-to-email.php"
-    -->
-    <form>
-      <h3>Maila mig</h3>
-      <a :href="mail.href" class="mailLink">
-        <img class="mail" :src="mail.url" alt />
-      </a>
+    <form method="post" name="my-email-form" action="form-to-email.php">
+      <h3>Kontakta mig</h3>
+      <div class="input-wrapper">
+        <label for="namn">
+          Namn
+          <span>(måste anges)</span>
+        </label>
+        <input v-model="namn" name="namn" />
+      </div>
+
+      <div class="input-wrapper">
+        <label for="mail">
+          Mail
+          <span>(måste anges)</span>
+        </label>
+        <input v-model="mail" name="mail" />
+      </div>
+      <p>
+        <!--         Vad gäller ditt ärende
+        <span>(måste anges)</span>
+      </p>
+      <select v-model="selected" name="ärende">
+        <option disabled value>Välj ärende</option>
+        <option>Privat coaching</option>
+        <option>Företag coaching</option>
+        <option>Typologi</option>
+        </select>-->
+        <span>Kommentar</span>
+        <textarea v-model="message" name="message" />
+        <button type="submit" class="submit" name="submit">Skicka</button>
+      </p>
     </form>
   </div>
 </template>
@@ -14,27 +38,18 @@
 <script>
 export default {
   name: "FormComp",
-  /*   data() {
+  data() {
     return {
       namn: "",
       mail: "",
       selected: "",
       message: ""
     };
-  }, */
-  computed: {
-    mail() {
-      let mail = this.$store.getters.socialMediaIcons.filter(
-        i => i.name == "mail"
-      )[0];
-
-      return mail;
-    }
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/scss/_variables.scss";
 @import "@/scss/_colors.scss";
 @import "@/scss/_sizes.scss";
@@ -43,7 +58,8 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 5%;
-  /* margin: 0 10%; */
+  margin: 0 10%;
+  background: white;
   @media only screen and (min-width: $tablet) {
     margin: 0 15%;
   }
@@ -87,34 +103,6 @@ export default {
   .input-wrapper {
     display: flex;
     flex-direction: column;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  a {
-    align-self: center;
-    cursor: pointer;
-  }
-
-  .mail {
-    height: 100px;
-    @media only screen and (min-width: $tablet) {
-      height: 150px;
-    }
-  }
-
-  h3 {
-    color: white;
-    font-size: 30px;
-    @media only screen and (min-width: $tablet) {
-      font-size: 48px;
-    }
-  }
-  a {
-    z-index: 3;
   }
 }
 </style>

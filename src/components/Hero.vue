@@ -27,7 +27,7 @@ export default {
       return this.$store.getters.pages.filter(p => p.name === this.propName);
     },
     desktopImageCropped() {
-      return this.desktopImage + "?fit=crop&w=1920&h=1212";
+      return this.desktopImage + "?fit=crop&w=1920&h=757";
     }
   }
 };
