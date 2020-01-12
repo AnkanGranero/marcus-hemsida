@@ -87,21 +87,26 @@ export default {
 
 <style lang="scss">
 @import "@/scss/_variables.scss";
-@import "@/scss/_fonts.scss";
+/* @import "@/scss/_fonts.scss"; */
 
 @import url("https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Muli|Nunito+Sans|Quicksand|Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Be+Vietnam:100i,300,300i,400,400i,500&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display|Vidaloka&display=swap");
+
+@font-face {
+  font-family: "monradGrotesk";
+  src: url("../public/fonts/Monrad Grotesk-Light.otf");
+}
+
 #app {
-  /*  font-family: "Oswald", sans-serif; */
-  font-family: "Be Vietnam", sans-serif;
   overflow: hidden;
   line-height: 30px;
+  font-family: "monradGrotesk";
 }
 
 h1 {
-  font-family: $headerFont;
+  /* font-family: $headerFont; */
   font-size: 5em;
   font-weight: 300;
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
@@ -110,7 +115,7 @@ h1 {
   }
 }
 h2 {
-  font-family: $headerFont;
+  /*   font-family: $headerFont; */
   font-weight: 400;
   text-align: center;
   margin: 5% 0 7% 0;
@@ -124,7 +129,8 @@ h2 {
   }
 }
 h3 {
-  font-family: $headerFont;
+  /*   font-family: $headerFont;
+ */
   text-align: center;
 }
 
@@ -135,7 +141,6 @@ h3 {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-
 
 li {
   list-style: none;
