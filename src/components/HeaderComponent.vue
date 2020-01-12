@@ -1,6 +1,5 @@
 <template>
   <div class="header-wrapper">
-    <!-- <div v-if="sideNavIsVisible" class="overlay" @click="toggleSideNav"></div> -->
     <div class="top-container">
       <div class="header-top">
         <img class="logo" :src="eckermannLogo" alt />
@@ -16,10 +15,6 @@
       </div>
     </div>
 
-    <!--     <div class="sidenav" :class="{active : sideNavIsVisible}">
-      
-
-    </div>-->
     <mobile-overlay
       v-on:clicked="toggleOverlay"
       :overlayIsVisible="overlayIsVisible"

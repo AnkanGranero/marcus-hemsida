@@ -44,11 +44,14 @@ export default new Vuex.Store({
           url: "logos/fb.gif",
         href: "https://www.facebook.com/voneckermanncoaching/"},
         { name:"instagram" ,
-          url: "logos/instagram.gif",
-        href: "https://voneckermann.podbean.com/"},
-        { name:"youtube" ,
-          url: "logos/youtube.gif",
-        href: "https://www.youtube.com/channel/UCXNefcZ1O1inwwbqXk61JJg"},
+         href: "https://www.instagram.com/voneckermanncoaching/",
+          url: "logos/instagram.gif"
+        },
+        { name: "pod",
+          href: "https://voneckermann.podbean.com/",
+          url: "logos/podbean.gif"
+        },
+
         { name:"mail" ,
           url: "logos/mail.gif",
         href: "mailto:kontakt@voneckermann.com"}
