@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: "/marcus-hemsida/",
+  publicPath: "/",
 /*     css: {
       loaderOptions: {
         sass: {

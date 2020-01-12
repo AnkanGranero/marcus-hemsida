@@ -10,7 +10,7 @@
         <img class="hamburger" :src="hamburgerLogo" @click="toggleOverlay" />
       </div>
       <div class="socialMediaIcons">
-        <a v-for="(icon, index) in icons" v-bind:key="index" :href="icon.href">
+        <a v-for="(icon, index) in icons" v-bind:key="index" :href="icon.href" target="_blank">
           <img :src="icon.url" :alt="icon.name" class="icon" />
         </a>
       </div>

@@ -17,7 +17,7 @@
       </div>-->
 
       <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
-        <h2 v-text="textBox.fields.header" class="zz-top" />
+        <h2 v-if="textBox.fields.header" v-text="textBox.fields.header" class="zz-top" />
 
         <div class="bodyText" :class="onlyText(textBox)">
           <div class="innerText">
@@ -38,9 +38,29 @@
             </ul>
           </div>
         </div>
-        <div></div>
-        <div class="link" v-if="textBox.fields.link">
-          <a :href="textBox.link.fields.link">
+
+        <div class="overview-wrapper" v-if="pageInfo.overview">
+          <router-link
+            tag="div"
+            class="overview"
+            v-for="(content, index) in
+          pageInfo.overview"
+            :key="index"
+            :to="content.fields.header"
+          >
+            <h2>{{ content.fields.header}}</h2>
+            <p
+              v-for="(text, index) in content.fields.bodyText.content"
+              :key="index"
+              class="InnerBox zz-top"
+              v-text="removeQuotes(text.content[0].value)"
+            ></p>
+          </router-link>
+        </div>
+
+        <div class="link" v-if="pageInfo.link.link">
+          <p v-text="pageInfo.link.text"></p>
+          <a :href="pageInfo.link.link" target="_blank">
             <img :src="linkImg" :alt="pageInfo.link.name" />
           </a>
         </div>
@@ -87,7 +107,7 @@ export default {
       )[0];
     },
     pageText() {
-      return this.pageInfo.textBoxes;
+      return this.pageInfo.bodyText;
     },
     linkImg() {
       if (this.pageInfo.link) {
@@ -328,7 +348,12 @@ export default {
   }
 }
 .link {
-  padding-top: 10%;
+  /* padding-top: 10%; */
+  text-align: center;
+  padding-top: 3%;
+  p {
+    margin: 2%;
+  }
   a {
     display: flex;
     justify-content: center;
@@ -366,6 +391,22 @@ li {
   }
   @media only screen and (min-width: $pad) {
     font-size: 21px;
+  }
+}
+//denna ligger i  box men kanske ska tänka över denna struktur
+.overview-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+
+  .overview {
+    cursor: pointer;
+    h2 {
+      font-size: 23px;
+      @media only screen and (min-width: $tablet) {
+        font-size: 3em;
+      }
+    }
   }
 }
 

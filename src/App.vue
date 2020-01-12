@@ -37,8 +37,8 @@ export default {
 
     pageInfo() {
       let answer = {
-        textBoxes: [],
-        textBoxesNew: [],
+        bodyText: [],
+        overview: [],
         mobileImage: "",
         desktopImage: "",
         backgroundImage: "",
@@ -46,8 +46,8 @@ export default {
       };
       let page = this.thisPage ? this.thisPage[0] : "";
       if (page) {
-        answer.textBoxes = page.fields.textBoxes ? page.fields.textBoxes : "";
-        console.log("textboxes", answer.textBoxes);
+        answer.bodyText = page.fields.bodyText ? page.fields.bodyText : null;
+        answer.overview = page.fields.overview ? page.fields.overview : null;
 
         // let textBoxesArr = textFolder.filter(
         //   item => item.fields.type === "textBox"
@@ -136,6 +136,7 @@ h3 {
   color: #42b983;
 }
 
+
 li {
   list-style: none;
   font-weight: 300;
@@ -149,6 +150,7 @@ a {
   text-decoration: none;
   color: black;
   font-weight: 300;
+  cursor: pointer;
 }
 
 p {
