@@ -281,7 +281,6 @@ export default {
 }
 
 .backgroundVar1 {
-  background: url("./tom.jpg") no-repeat;
   background-size: cover;
   z-index: 1;
 }
