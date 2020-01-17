@@ -87,7 +87,6 @@ export default {
 
 <style lang="scss">
 @import "@/scss/_variables.scss";
-/* @import "@/scss/_fonts.scss"; */
 
 @import url("https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Muli|Nunito+Sans|Quicksand|Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap");
@@ -106,7 +105,6 @@ export default {
 }
 
 h1 {
-  /* font-family: $headerFont; */
   font-size: 5em;
   font-weight: 300;
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
@@ -115,7 +113,6 @@ h1 {
   }
 }
 h2 {
-  /*   font-family: $headerFont; */
   font-weight: 400;
   text-align: center;
   margin: 5% 0 7% 0;
