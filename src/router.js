@@ -37,10 +37,10 @@ export default new Router({
     name: "Coaching",
     component: Coaching
   },
-     { path: "*",
+/*      { path: "*",
     name: "Hem",
     component: Hem
-  },
+  }, */
   
   ],
     scrollBehavior (to, from, savedPosition) {
