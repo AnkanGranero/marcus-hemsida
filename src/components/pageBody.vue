@@ -40,22 +40,18 @@
         </div>
 
         <div class="overview-wrapper" v-if="pageInfo.overview">
-          <router-link
-            tag="div"
-            class="overview"
-            v-for="(content, index) in
-          pageInfo.overview"
-            :key="index"
-            :to="content.fields.header"
-          >
-            <h2>{{ content.fields.header}}</h2>
-            <p
+          <div v-for="(content, index) in
+          pageInfo.overview" :key="index">
+            <h2 class="overViewHeader">{{ content.fields.header}}</h2>
+            <router-link
+              tag="p"
               v-for="(text, index) in content.fields.bodyText.content"
               :key="index"
-              class="InnerBox zz-top"
+              class="InnerBox zz-top overViewButton"
               v-text="removeQuotes(text.content[0].value)"
-            ></p>
-          </router-link>
+              :to="content.fields.header"
+            ></router-link>
+          </div>
         </div>
 
         <div class="link" v-if="pageInfo.link.link">
@@ -204,7 +200,7 @@ export default {
           break;
         case bottomOfWindow < totalHeight * 0.6:
           $(".box").css({
-            "background-color": "black",
+            "background-color": "#2d2a2a",
             transition: "background-color 5s linear"
           });
           this.changeOpacity(0, ".background-overlay");
@@ -322,7 +318,7 @@ export default {
 
   color: white;
   padding: 3% 5%;
-  margin: -3% 0;
+  margin: 0;
 
   .bodyText {
     display: flex;
@@ -395,10 +391,21 @@ li {
 //denna ligger i  box men kanske ska tänka över denna struktur
 .overview-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-top: 5%;
 
-  .overview {
+  @media only screen and (min-width: $tablet) {
+    flex-direction: row;
+  }
+
+  .overViewButton {
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    border: white solid 1px;
+    border-radius: 5px;
     cursor: pointer;
     h2 {
       font-size: 23px;
@@ -406,6 +413,10 @@ li {
         font-size: 3em;
       }
     }
+  }
+
+  .overViewHeader {
+    margin-bottom: 25px;
   }
 }
 
