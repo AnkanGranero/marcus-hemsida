@@ -88,11 +88,6 @@ export default {
 <style lang="scss">
 @import "@/scss/_variables.scss";
 
-@import url("https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Muli|Nunito+Sans|Quicksand|Raleway&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Be+Vietnam:100i,300,300i,400,400i,500&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Vidaloka&display=swap");
-
 @font-face {
   font-family: "monradGrotesk";
   src: url("../public/fonts/Monrad Grotesk-Light.otf");
