@@ -39,18 +39,25 @@
           </div>
         </div>
 
-        <div class="overview-wrapper" v-if="pageInfo.overview">
-          <div v-for="(content, index) in
-          pageInfo.overview" :key="index">
-            <h2 class="overViewHeader">{{ content.fields.header}}</h2>
+        <div class="overview-container overViewButton" v-if="pageInfo.overview">
+          <div
+            class="overView-wrapper"
+            v-for="(content, index) in
+          pageInfo.overview"
+            :key="index"
+          >
             <router-link
-              tag="p"
+              class="overViewHeader"
+              tag="h2"
+              :to="content.fields.header"
+            >{{ content.fields.header}}</router-link>
+
+            <p
               v-for="(text, index) in content.fields.bodyText.content"
               :key="index"
-              class="InnerBox zz-top overViewButton"
+              class="InnerBox zz-top"
               v-text="removeQuotes(text.content[0].value)"
-              :to="content.fields.header"
-            ></router-link>
+            ></p>
           </div>
         </div>
 
@@ -389,22 +396,33 @@ li {
   }
 }
 //denna ligger i  box men kanske ska tänka över denna struktur
-.overview-wrapper {
+.overview-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-top: 5%;
 
+  .overView-wrapper {
+    border: white solid 1px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+  }
+
   @media only screen and (min-width: $tablet) {
     flex-direction: row;
+    padding: 0 15%;
+  }
+  @media only screen and (min-width: $desktop) {
+    padding: 0 20%;
   }
 
   .overViewButton {
     background: white;
-    color: black;
+
     text-align: center;
     padding: 10px;
-    border: white solid 1px;
+
     border-radius: 5px;
     cursor: pointer;
     h2 {
