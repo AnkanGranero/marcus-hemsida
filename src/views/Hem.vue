@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import PageBody from "@/components/PageBody.vue";
 import Footer from "@/components/Footer.vue";
+import PageBody from "../components/PageBody";
 import Hero from "@/components/Hero.vue";
 
 export default {

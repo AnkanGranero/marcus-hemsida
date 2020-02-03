@@ -12,7 +12,7 @@
 
 <script>
 import Hero from "@/components/Hero.vue";
-import PageBody from "../components/PageBody.vue";
+import PageBody from "../components/PageBody";
 import Footer from "@/components/Footer.vue";
 
 export default {
