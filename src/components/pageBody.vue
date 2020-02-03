@@ -2,20 +2,6 @@
   <div class="page-wrapper">
     <div class="body-wrapper">
       <sticky-elevator :class="elevatorIsShowing" class="elevator" @click.native="scrollToTop" />
-
-      <!-- <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
-      <h2 v-text="textBox.header" class="zz-top" />-->
-
-      <!-- <div v-for="(text, index) in textBox.bodyText.content" :key="index" class="box">
-          <p v-text="removeQuotes(text.content[0].value)" class="zz-top"></p>
-        </div>
-        <div class="link">
-          <a v-if="textBox.link" :href="textBox.link.fields.link">
-            <img :src="linkImg" :alt="pageInfo.link.name" />
-          </a>
-        </div>
-      </div>-->
-
       <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
         <h2 v-if="textBox.fields.header" v-text="textBox.fields.header" class="zz-top" />
 
@@ -68,9 +54,6 @@
           </a>
         </div>
       </div>
-
-      <!--       <div class="background-solid-overlay"></div>
-      -->
       <div class="background-overlay" :style="background"></div>
     </div>
   </div>
@@ -98,9 +81,6 @@ export default {
   },
 
   computed: {
-    background() {
-      return ` background: url("https:${this.backgroundImage}"); background-size: cover`;
-    },
     renderedPage() {
       return this.$store.getters.pages.filter(p => p.name === this.propName);
     },
@@ -131,11 +111,6 @@ export default {
     mobileImage() {
       let mobileImage = this.contentfulRenderedPage.map(item => item.images[0]);
       let mobileImage2 = this.contentfulRenderedPage;
-
-      /*  this.contentfulRenderedPage.map(item => item.images)[0] */
-
-      /* .filter(item => item.fields.title.endsWith("mobile")) */
-
       return this.contentfulRenderedPage.images;
     }
   },
@@ -169,16 +144,7 @@ export default {
         return str.image.fields.file.url;
       }
     },
-    changeBackgroundVar(variant) {
-      $(".background-overlay").css({
-        background: `url(${variant}) `,
-        "background-size": "cover",
-        opacity: 0
-      });
-    },
-    /*    changeBackgroundVar(variant) {
-      $(".background-overlay").addClass(variant);
-    }, */
+
     changeOpacity(value, className) {
       $(className).css({ opacity: value });
     },
@@ -222,15 +188,6 @@ export default {
           }); //this is $dark
 
           break;
-
-        /*   case y < 1700:
-          this.changeBackgroundVar("/marcus-hemsida/img/ali.05ae46c1.jpg");
-          break;
-
-        case y < 3000:
-          this.changeOpacity(0.3);
-
-          break; */
       }
     }
   }
@@ -260,7 +217,6 @@ export default {
 }
 
 .background-overlay {
-  /* background: url("./tom.jpg") no-repeat; */
   background-size: cover;
   position: absolute;
   height: 100vh;
@@ -317,8 +273,6 @@ export default {
   flex-direction: column;
   background: rgb(97, 86, 86);
   background-color: $dark;
-  /*   background: url("../assets/ali.jpg");
-  background-size: cover; */
   -webkit-transition: background-color 5s linear;
   -ms-transition: background-color 5s linear;
   transition: background-color 5s linear;
@@ -350,7 +304,6 @@ export default {
   }
 }
 .link {
-  /* padding-top: 10%; */
   text-align: center;
   padding-top: 3%;
   p {
@@ -460,17 +413,9 @@ li {
   }
 }
 
-/* .background-image {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  z-index: -2;
-} */
-
 .header {
   position: absolute;
   @media only screen and (min-width: $pad) {
-    /* display: none; */
   }
 }
 
