@@ -1,21 +1,21 @@
 <template>
   <div class="form-wrapper">
-    <form action="POST" data-netlify="true">
+    <form method="POST" data-netlify="true">
       <h3>Kontakta mig</h3>
       <div class="input-wrapper">
-        <label for="namn">
+        <label>
           Namn
           <span>(måste anges)</span>
         </label>
-        <input v-model="namn" name="namn" />
+        <input name="namn" />
       </div>
 
       <div class="input-wrapper">
-        <label for="email">
+        <label>
           email
           <span>(måste anges)</span>
         </label>
-        <input v-model="email" name="email" />
+        <input name="email" />
       </div>
       <p>
         <!--         Vad gäller ditt ärende
@@ -37,15 +37,15 @@
 
 <script>
 export default {
-  name: "FormComp",
-  data() {
+  name: "FormComp"
+  /*   data() {
     return {
       namn: "",
       email: "",
       selected: "",
       message: ""
     };
-  }
+  } */
 };
 </script>
 
