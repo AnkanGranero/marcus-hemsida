@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="/index.css">
     <title>marcus-hemsida</title>
+        <form method="POST" data-netlify="true" hidden>
+      <h3>Kontakta mig</h3>
+      <div class="input-wrapper">
+        <label>
+          Namn
+          <span>(måste anges)</span>
+        </label>
+        <input name="namn" />
+      </div>
+
+      <div class="input-wrapper">
+        <label>
+          email
+          <span>(måste anges)</span>
+        </label>
+        <input name="email" />
+      </div>
+      <p>
+        <span>Kommentar</span>
+        <textarea v-model="message" name="message" />
+        <button type="submit" class="submit" name="submit">Skicka</button>
+      </p>
+    </form>
     <style>
       body {margin: 0;
         max-width: 100%;
