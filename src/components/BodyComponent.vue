@@ -59,7 +59,7 @@ import StickyElevator from "./StickyElevator";
 
 let $ = JQuery;
 export default {
-  name: "PageBody",
+  name: "BodyComponent",
   components: {
     StickyElevator
   },
