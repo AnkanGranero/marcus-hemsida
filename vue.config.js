@@ -1,10 +1,12 @@
+const path = require('path');
+
 module.exports = {
   publicPath: "/",
-/*     css: {
-      loaderOptions: {
-        sass: {
-          data: `@import "@/styles/_variables.scss";`
-        }
+  configureWebpack: {
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, 'src')
       }
-    } */
+    }
+  }
   };
