@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import PageBody from "../components/PageBody";
+import PageBodyTest from "../components/PageBodyTest";
 import FormComp from "@/components/FormComp.vue";
 import Hero from "@/components/Hero.vue";
 import Footer from "@/components/Footer.vue";
@@ -24,7 +24,7 @@ export default {
     return { name: "Kontakt" };
   },
   components: {
-    PageBody,
+    PageBodyTest,
     FormComp,
     Hero,
     Footer
