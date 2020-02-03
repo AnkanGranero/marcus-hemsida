@@ -5,14 +5,14 @@
       :mobileImage="pageInfo.mobileImage"
       :desktopImage="pageInfo.desktopImage"
     ></Hero>
-    <PageBodyTest :propName="name" :pageInfo="pageInfo"></PageBodyTest>
+    <PageBody :propName="name" :pageInfo="pageInfo"></PageBody>
     <Footer />
   </div>
 </template>
 
 <script>
 import Footer from "@/components/Footer.vue";
-import PageBodyTest from "../components/PageBodyTest";
+import PageBody from "../components/PageBody";
 import Hero from "@/components/Hero.vue";
 
 export default {
@@ -23,7 +23,7 @@ export default {
     };
   },
   components: {
-    PageBodyTest,
+    PageBody,
     Footer,
     Hero
   },

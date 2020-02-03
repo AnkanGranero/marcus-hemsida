@@ -5,7 +5,7 @@
       :mobileImage="pageInfo.mobileImage"
       :desktopImage="pageInfo.desktopImage"
     />
-    <PageBodyTest :propName="name" :pageInfo="pageInfo"></PageBodyTest>
+    <PageBody :propName="name" :pageInfo="pageInfo"></PageBody>
     <div class="formContainer">
       <FormComp />
     </div>
@@ -15,7 +15,7 @@
 
 <script>
 import Hero from "@/components/Hero.vue";
-import PageBodyTest from "../components/PageBodyTest";
+import PageBody from "../components/PageBody";
 import FormComp from "@/components/FormComp.vue";
 import Footer from "@/components/Footer.vue";
 export default {
@@ -25,7 +25,7 @@ export default {
   },
   components: {
     Hero,
-    PageBodyTest,
+    PageBody,
     FormComp,
     Footer
   },
