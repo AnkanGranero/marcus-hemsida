@@ -26,12 +26,7 @@
         </div>
 
         <div class="overview-container overViewButton" v-if="pageInfo.overview">
-          <div
-            class="overView-wrapper"
-            v-for="(content, index) in
-          pageInfo.overview"
-            :key="index"
-          >
+          <div class="overView-wrapper" v-for="(content, index) in pageInfo.overview" :key="index">
             <router-link
               class="overViewHeader"
               tag="h2"
@@ -93,9 +88,9 @@ export default {
       return this.pageInfo.bodyText;
     },
     linkImg() {
-      if (this.pageInfo.link) {
-        return this.pageInfo.link.picture.fields.file.url;
-      }
+      return this.pageInfo.link
+        ? this.pageInfo.link.picture.fields.file.url
+        : "";
     },
     elevatorIsShowing() {
       return {
@@ -107,11 +102,6 @@ export default {
       return this.$store.getters.contentfulPages
         .filter(p => p.fields.title === this.propName)
         .map(item => item.fields);
-    },
-    mobileImage() {
-      let mobileImage = this.contentfulRenderedPage.map(item => item.images[0]);
-      let mobileImage2 = this.contentfulRenderedPage;
-      return this.contentfulRenderedPage.images;
     }
   },
 
@@ -153,7 +143,7 @@ export default {
       var bottomOfWindow = $(window).scrollTop() + $(window).height();
       $(".box")
         .find("*")
-        .each(function(i) {
+        .each(function() {
           var bottomOfObject = $(this).position().top + $(this).outerHeight();
 
           if (bottomOfWindow > bottomOfObject * 0.8) {
@@ -162,8 +152,6 @@ export default {
         });
 
       let totalHeight = document.body.clientHeight;
-
-      let y = $(window).scrollTop();
 
       switch (true) {
         case bottomOfWindow < 970:
@@ -193,7 +181,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="scss">
 @import "@/scss/_variables.scss";
