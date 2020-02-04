@@ -1,7 +1,11 @@
 <template>
   <div class="form-wrapper">
-    <form name="kontakt org" method="POST" netlify netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="kontakt org" />
+    <form name="kontakt" method="POST" netlify netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="kontakt" />
+      <label>
+        Fyll inte i denna om du är människa
+        <input type="bot-field" />
+      </label>
       <h3>Kontakta mig</h3>
       <div class="input-wrapper">
         <label>
