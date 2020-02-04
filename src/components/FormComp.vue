@@ -32,6 +32,12 @@
         <button type="submit" class="submit" name="submit">Skicka</button>
       </p>
     </form>
+    <form name="kontakt" netlify netlify-honeypot="bot-field">
+      <input type="text" name="name" />
+      <input type="text" name="email" />
+      <textarea name="question"></textarea>
+      <button type="submit">SUBMIT</button>
+    </form>
   </div>
 </template>
 
