@@ -1,13 +1,13 @@
 <template>
   <div class="form-wrapper">
-    <form method="POST" data-netlify="true">
+    <form name="kontakt" method="POST" data-netlify="true">
       <h3>Kontakta mig</h3>
       <div class="input-wrapper">
         <label>
           Namn
           <span>(måste anges)</span>
         </label>
-        <input name="namn" />
+        <input type="text" name="name" />
       </div>
 
       <div class="input-wrapper">
@@ -15,7 +15,7 @@
           email
           <span>(måste anges)</span>
         </label>
-        <input name="email" />
+        <input type="text" name="email" />
       </div>
       <p>
         <!--         Vad gäller ditt ärende
@@ -28,7 +28,7 @@
         <option>Typologi</option>
         </select>-->
         <span>Kommentar</span>
-        <textarea v-model="message" name="message" />
+        <textarea name="question" />
         <button type="submit" class="submit" name="submit">Skicka</button>
       </p>
     </form>
@@ -40,7 +40,7 @@ export default {
   name: "FormComp"
   /*   data() {
     return {
-      namn: "",
+      name: "",
       email: "",
       selected: "",
       message: ""

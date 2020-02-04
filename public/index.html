@@ -18,30 +18,15 @@
     <noscript>
       <strong>We're sorry but marcus-hemsida doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-            <form method="POST" data-netlify="true" hidden>
-      <h3>Kontakta mig</h3>
-      <div class="input-wrapper">
-        <label>
-          Namn
-          <span>(måste anges)</span>
-        </label>
-        <input name="namn" />
-      </div>
 
-      <div class="input-wrapper">
-        <label>
-          email
-          <span>(måste anges)</span>
-        </label>
-        <input name="email" />
-      </div>
-      <p>
-        <span>Kommentar</span>
-        <textarea v-model="message" name="message" />
-        <button type="submit" class="submit" name="submit">Skicka</button>
-      </p>
-    </form>
-    <div id="app"></div>
+    <div id="app">
+  <form name="kontakt" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name" />
+  <input type="text" name="email" />
+  <textarea name="question"></textarea>
+  <button type="submit" name="submit"></button>
+</form>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>
