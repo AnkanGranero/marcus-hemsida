@@ -13,7 +13,7 @@
           Namn
           <span>(måste anges)</span>
         </label>
-        <input type="text" name="name" />
+        <input type="text" name="namn" />
       </div>
 
       <div class="input-wrapper">
@@ -34,7 +34,7 @@
         <option>Typologi</option>
       </select>
       <span>Kommentar</span>
-      <textarea name="question" />
+      <textarea name="fråga" />
       <button type="submit" class="submit" name="submit">Skicka</button>
     </form>
   </div>
