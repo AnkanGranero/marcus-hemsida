@@ -41,6 +41,7 @@ export default {
 @import "@/scss/_sizes.scss";
 .formContainer {
   background: $dark;
+  padding-top: 5%;
 }
 .logo {
   margin-top: 0;

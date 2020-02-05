@@ -7,7 +7,7 @@
         <input type="bot-field" />
       </label>
 
-      <h3>Kontakta mig</h3>
+      <h2>Kontakta mig</h2>
       <div class="input-wrapper">
         <label>
           Namn
@@ -33,7 +33,7 @@
         <option>Företag coaching</option>
         <option>Typologi</option>
       </select>
-      <span>Kommentar</span>
+
       <textarea name="fråga" />
       <button type="submit" class="submit" name="submit">Skicka</button>
     </form>
