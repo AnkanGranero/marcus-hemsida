@@ -2,10 +2,11 @@
   <div class="form-wrapper">
     <form name="kontakt" method="POST" netlify netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="kontakt" />
-      <label>
+      <label hidden>
         Fyll inte i denna om du är människa
         <input type="bot-field" />
       </label>
+
       <h3>Kontakta mig</h3>
       <div class="input-wrapper">
         <label>
@@ -23,7 +24,7 @@
         <input type="text" name="email" />
       </div>
       <p>
-        <!--         Vad gäller ditt ärende
+        Vad gäller ditt ärende
         <span>(måste anges)</span>
       </p>
       <select v-model="selected" name="ärende">
@@ -31,17 +32,10 @@
         <option>Privat coaching</option>
         <option>Företag coaching</option>
         <option>Typologi</option>
-        </select>-->
-        <span>Kommentar</span>
-        <textarea name="question" />
-        <button type="submit" class="submit" name="submit">Skicka</button>
-      </p>
-    </form>
-    <form name="kontakta" netlify netlify-honeypot="bot-field">
-      <input type="text" name="name" />
-      <input type="text" name="email" />
-      <textarea name="question"></textarea>
-      <button type="submit">SUBMIT</button>
+      </select>
+      <span>Kommentar</span>
+      <textarea name="question" />
+      <button type="submit" class="submit" name="submit">Skicka</button>
     </form>
   </div>
 </template>
