@@ -1,6 +1,10 @@
 <template>
-  <div class="mobileOverlay" :class="{active:overlayIsVisible }" @click="$emit('clicked')">
-    <ul class="sidenav-list" @click.native="toggleSideNav">
+  <div
+    class="mobileOverlay"
+    :class="{active:overlayIsVisible }"
+    @click="$emit('clicked') && toggleSideNav"
+  >
+    <ul class="sidenav-list">
       <li v-for="page in pages" :key="page.name">
         <router-link :to="page.path">{{page.name}}</router-link>
       </li>
