@@ -49,7 +49,7 @@
           </a>
         </div>
       </div>
-      <div class="background-overlay" :style="background"></div>
+      <div class="background-overlay"></div>
     </div>
   </div>
 </template>
