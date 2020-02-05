@@ -27,7 +27,7 @@
         Vad gäller ditt ärende
         <span>(måste anges)</span>
       </p>
-      <select v-model="selected" name="ärende">
+      <select type="selected" name="ärende">
         <option disabled value>Välj ärende</option>
         <option>Privat coaching</option>
         <option>Företag coaching</option>

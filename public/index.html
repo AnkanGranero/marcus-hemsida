@@ -11,6 +11,9 @@
       body {margin: 0;
         max-width: 100%;
      overflow-x: hidden;}
+     .hidden {
+       display: none
+     }
 
       </style>
   </head>
@@ -22,12 +25,20 @@
     <div id="app">
 
     </div>
-      <form name="kontakt" netlify netlify-honeypot="bot-field" >
+  <form name="kontakt" netlify netlify-honeypot="bot-field" hidden class="hidden">
   <input type="text" name="name" />
   <input type="text" name="email" />
+   <select type="selected" name="ärende">
+        <option disabled value>Välj ärende</option>
+        <option>Privat coaching</option>
+        <option>Företag coaching</option>
+        <option>Typologi</option>
+      </select>
   <textarea name="question"></textarea>
   <button type="submit">SUBMIT</button>
 </form>
     <!-- built files will be auto injected -->
   </body>
 </html>
+
+
