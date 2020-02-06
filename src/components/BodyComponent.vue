@@ -213,6 +213,7 @@ export default {
   top: 0;
   opacity: 0;
   transition: opacity 3s;
+  pointer-events: none;
 }
 .background-solid-overlay {
   background: black;
