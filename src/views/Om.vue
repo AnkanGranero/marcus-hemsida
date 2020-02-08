@@ -7,7 +7,7 @@
     />
     <BodyComponent :propName="name" :pageInfo="pageInfo"></BodyComponent>
     <div class="formContainer">
-      <FormComp />
+      <Mail />
     </div>
     <Footer />
   </div>
@@ -16,7 +16,7 @@
 <script>
 import Hero from "@/components/Hero.vue";
 import BodyComponent from "../components/BodyComponent";
-import FormComp from "@/components/FormComp.vue";
+import Mail from "@/components/Mail.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
@@ -27,7 +27,7 @@ export default {
   components: {
     Hero,
     BodyComponent,
-    FormComp,
+    Mail,
     Footer
   },
   props: {
