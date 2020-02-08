@@ -8,7 +8,7 @@
     <div class="formContainer">
       <FormComp />
     </div>
-    <Footer />
+    <Footer :fade="false" />
   </div>
 </template>
 
