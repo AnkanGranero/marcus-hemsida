@@ -43,14 +43,6 @@
 <script>
 export default {
   name: "FormComp"
-  /*   data() {
-    return {
-      name: "",
-      email: "",
-      selected: "",
-      message: ""
-    };
-  } */
 };
 </script>
 
@@ -111,4 +103,3 @@ export default {
   }
 }
 </style>
-/* sedan kanske jag kan skicka ett inputfälten i ett email till marcus, fast blir det rätt med avsändaren? */
