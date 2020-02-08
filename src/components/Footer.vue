@@ -1,5 +1,5 @@
 <template>
-  <div class="footer box">
+  <div class="footer" :class="{'box' : fade }">
     <img :src="logo.white" :alt="logo.alt" class="von-eckermann" />
   </div>
 </template>
@@ -8,7 +8,11 @@
 export default {
   name: "Footer",
   props: {
-    propName: String
+    propName: String,
+    fade: {
+      default: true,
+      type: Boolean
+    }
   },
   data() {
     return {

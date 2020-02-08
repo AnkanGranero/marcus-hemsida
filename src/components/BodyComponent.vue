@@ -314,7 +314,6 @@ export default {
 .box * {
   opacity: 0;
   position: relative;
-  top: 15px;
   transition: opacity 2.5s linear, top 2.5s linear;
 
   h2 {
@@ -413,7 +412,7 @@ h1 {
   line-height: 57px;
   color: white;
   animation-name: fadeIn;
-  animation-duration: 2.5s;
+  animation-duration: 5s;
 }
 
 .body-wrapper {
@@ -429,7 +428,7 @@ h1 {
 
 @keyframes fadeIn {
   0% {
-    margin-top: 9%;
+    margin-top: 6.5%;
     opacity: 0;
   }
   100% {
