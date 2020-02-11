@@ -19,6 +19,19 @@ export default {
     };
   },
   components: { HeaderComponent },
+  metaInfo() {
+    return {
+      title: "voneckermann",
+      meta: [
+        {
+          vmid: "description",
+          name: "description",
+          content:
+            "Jag heter Marcus von Eckermann och är coach och expert på personlighetstyper"
+        }
+      ]
+    };
+  },
   methods: {
     async fetchPages() {
       try {
