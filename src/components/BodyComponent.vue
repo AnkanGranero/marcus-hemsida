@@ -337,6 +337,7 @@ li {
 }
 //denna ligger i  box men kanske ska tänka över denna struktur
 .overview-container {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
