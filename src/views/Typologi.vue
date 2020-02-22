@@ -5,11 +5,7 @@
       :mobileImage="pageInfo.mobileImage"
       :desktopImage="pageInfo.desktopImage"
     />
-    <BodyComponent
-      :propName="name"
-      :pageInfo="pageInfo"
-      :backgroundImage="pageInfo.backgroundImage"
-    ></BodyComponent>
+    <BodyComponent :propName="name" :pageInfo="pageInfo"></BodyComponent>
     <Footer />
   </div>
 </template>

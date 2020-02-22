@@ -2,26 +2,28 @@
   <div class="page-wrapper">
     <div class="body-wrapper">
       <sticky-elevator :class="elevatorIsShowing" class="elevator" @click.native="scrollToTop" />
-      <div v-for="(textBox, index) in pageText" v-bind:key="index" class="box">
-        <h2 v-if="textBox.fields.header" v-text="textBox.fields.header" class="zz-top" />
+      <div class="box">
+        <div v-for="(textBox, index) in pageText" v-bind:key="index">
+          <h2 v-if="textBox.fields.header" v-text="textBox.fields.header" class="zz-top" />
 
-        <div class="bodyText" :class="onlyText(textBox)">
-          <div class="innerText">
-            <p
-              v-for="(text, index) in textBox.fields.bodyText.content"
-              :key="index"
-              class="InnerBox zz-top"
-              v-text="removeQuotes(text.content[0].value)"
-            ></p>
-          </div>
-          <div class="innerText" v-if="textBox.fields.list">
-            <ul class="innerList">
-              <li
-                v-for="(text, index) in textBox.fields.list.content"
+          <div class="bodyText" :class="onlyText(textBox)">
+            <div class="innerText">
+              <p
+                v-for="(text, index) in textBox.fields.bodyText.content"
                 :key="index"
+                class="InnerBox zz-top"
                 v-text="removeQuotes(text.content[0].value)"
-              ></li>
-            </ul>
+              ></p>
+            </div>
+            <div class="innerText" v-if="textBox.fields.list">
+              <ul class="innerList">
+                <li
+                  v-for="(text, index) in textBox.fields.list.content"
+                  :key="index"
+                  v-text="removeQuotes(text.content[0].value)"
+                ></li>
+              </ul>
+            </div>
           </div>
         </div>
 
