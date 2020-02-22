@@ -41,6 +41,15 @@
             ></p>
           </div>
         </div>
+        <div class="textAndList-wrapper" v-if="pageInfo.textAndList">
+          <div class="textAndList" v-for="(content, index) in pageInfo.textAndList" :key="index">
+            <h3>{{ content.fields.header }}</h3>
+            <li
+              v-for="(list, index) in content.fields.list.content "
+              :key="index"
+            >{{ list.content[0].value }}</li>
+          </div>
+        </div>
 
         <div class="link" v-if="pageInfo.link.link">
           <p v-text="pageInfo.link.text"></p>
@@ -377,6 +386,10 @@ li {
   .overViewHeader {
     margin-bottom: 25px;
   }
+}
+
+.textAndList {
+  text-align: center;
 }
 
 .background-image {

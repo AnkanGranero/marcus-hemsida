@@ -55,38 +55,33 @@ export default {
         mobileImage: "",
         desktopImage: "",
         backgroundImage: "",
-        link: {}
+        link: {},
+        textAndList: []
       };
       let page = this.thisPage ? this.thisPage[0] : "";
       if (page) {
         answer.bodyText = page.fields.bodyText ? page.fields.bodyText : null;
         answer.overview = page.fields.overview ? page.fields.overview : null;
 
-        // let textBoxesArr = textFolder.filter(
-        //   item => item.fields.type === "textBox"
-        // );
-      }
-      if (this.thisPage[0]) {
-        if (this.thisPage[0].fields.mobileImage) {
+        answer.textAndList = page.fields.textAndList
+          ? page.fields.textAndList
+          : null;
+
+        if (page.fields.mobileImage) {
           //försök få bort denna dubbel-if
-          answer.mobileImage = this.thisPage[0].fields.mobileImage.fields.file.url;
+          answer.mobileImage = page.fields.mobileImage.fields.file.url;
         }
-        if (this.thisPage[0].fields.desktopImage) {
+        if (page.fields.desktopImage) {
           //försök få bort denna dubbel-if
-          answer.desktopImage = this.thisPage[0].fields.desktopImage.fields.file.url;
+          answer.desktopImage = page.fields.desktopImage.fields.file.url;
         }
-        if (this.thisPage[0].fields.backgroundImage) {
+        if (page.fields.backgroundImage) {
           //försök få bort denna dubbel-if
-          answer.backgroundImage = this.thisPage[0].fields.backgroundImage.fields.file.url;
+          answer.backgroundImage = page.fields.backgroundImage.fields.file.url;
         }
-        // if (this.thisPage[0].fields.textBoxes) {
-        //   this.thisPage[0].fields.textBoxes.forEach(element => {
-        //     answer.textBoxes.push(element.fields);
-        //   });
-        //   textbox => textbox.fields;
-        // }
-        if (this.thisPage[0].fields.link) {
-          answer.link = this.thisPage[0].fields.link.fields;
+
+        if (page.fields.link) {
+          answer.link = page.fields.link.fields;
         }
       }
       return answer;
@@ -136,7 +131,9 @@ h2 {
 h3 {
   /*   font-family: $headerFont;
  */
+  font-size: 25px;
   text-align: center;
+  font-weight: 400;
 }
 
 .von-eckermann {
