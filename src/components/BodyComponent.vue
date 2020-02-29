@@ -52,16 +52,18 @@
               v-text="removeQuotes(list.content[0].value)"
             ></li>
         </div>-->
-        <h2 v-if="pageInfo.references" class="reference-header">Referenser</h2>
-        <div v-for="(reference, index) in pageInfo.references" :key="index">
-          <div class="references bodyText" :class="onlyText(reference)">
-            <div class="innerText">
-              <p
-                v-for="(text, index) in reference.fields.bodyText.content"
-                :key="index"
-                class="InnerBox zz-top"
-                v-text="removeQuotes(text.content[0].value)"
-              ></p>
+        <div>
+          <h2 v-if="pageInfo.references" class="reference-header">Referenser</h2>
+          <div v-for="(reference, index) in pageInfo.references" :key="index">
+            <div class="references bodyText" :class="onlyText(reference)">
+              <div class="innerText">
+                <p
+                  v-for="(text, index) in reference.fields.bodyText.content"
+                  :key="index"
+                  class="InnerBox zz-top"
+                  v-text="removeQuotes(text.content[0].value)"
+                ></p>
+              </div>
             </div>
           </div>
         </div>
