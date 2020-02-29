@@ -56,15 +56,20 @@ export default {
         desktopImage: "",
         backgroundImage: "",
         link: {},
-        textAndList: []
+        /*    textAndList: [], */
+        references: []
       };
       let page = this.thisPage ? this.thisPage[0] : "";
       if (page) {
         answer.bodyText = page.fields.bodyText ? page.fields.bodyText : null;
         answer.overview = page.fields.overview ? page.fields.overview : null;
 
-        answer.textAndList = page.fields.textAndList
+        /*       answer.textAndList = page.fields.textAndList
           ? page.fields.textAndList
+          : null; */
+
+        answer.references = page.fields.references
+          ? page.fields.references
           : null;
 
         if (page.fields.mobileImage) {

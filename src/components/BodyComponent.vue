@@ -43,13 +43,26 @@
             ></p>
           </div>
         </div>
-        <div class="textAndList-wrapper" v-if="pageInfo.textAndList">
+        <!--   <div class="textAndList-wrapper" v-if="pageInfo.textAndList">
           <div class="textAndList" v-for="(content, index) in pageInfo.textAndList" :key="index">
             <h3>{{ content.fields.header }}</h3>
             <li
               v-for="(list, index) in content.fields.list.content "
               :key="index"
-            >{{ list.content[0].value }}</li>
+              v-text="removeQuotes(list.content[0].value)"
+            ></li>
+        </div>-->
+        <h2 v-if="pageInfo.references" class="reference-header">Referenser</h2>
+        <div v-for="(reference, index) in pageInfo.references" :key="index">
+          <div class="references bodyText" :class="onlyText(reference)">
+            <div class="innerText">
+              <p
+                v-for="(text, index) in reference.fields.bodyText.content"
+                :key="index"
+                class="InnerBox zz-top"
+                v-text="removeQuotes(text.content[0].value)"
+              ></p>
+            </div>
           </div>
         </div>
 
@@ -290,6 +303,12 @@ export default {
     .innerList li {
       margin: 3% 0;
     }
+  }
+  .references {
+    margin-top: 5%;
+  }
+  .reference-header {
+    margin-bottom: 0;
   }
   .onlyText {
     justify-content: center;
