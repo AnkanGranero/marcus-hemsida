@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import { createClient } from "./components/contentful.js";
 
-const client = createClient();
+createClient();
 
 Vue.use(Vuex);
 
