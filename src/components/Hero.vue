@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <div class="box-top">
-      <h1 class="header">{{propName}}</h1>
+      <h1 class="header">{{ propName }}</h1>
       <img class="page-image-desktop" :src="desktopImageCropped" alt />
       <img class="page-image-mobile" :src="mobileImage" alt />
     </div>
@@ -15,21 +15,21 @@ export default {
   props: {
     propName: String,
     mobileImage: String,
-    desktopImage: String
+    desktopImage: String,
   },
   data() {
     return {
-      name: "Hero"
+      name: "Hero",
     };
   },
   computed: {
     renderedPage() {
-      return this.$store.getters.pages.filter(p => p.name === this.propName);
+      return this.$store.getters.pages.filter((p) => p.name === this.propName);
     },
     desktopImageCropped() {
       return this.desktopImage + "?fit=crop&w=1920&h=757";
-    }
-  }
+    },
+  },
 };
 </script>
    <style lang="scss" >
@@ -47,10 +47,11 @@ export default {
   @media only screen and (min-width: $pad) {
     width: 100%;
     position: relative;
-    /*     height: 663px; */
     overflow: hidden;
-    /* top: 16vh; */
   }
+}
+.page-wrapper {
+  min-height: 430px;
 }
 
 .page-image-desktop {

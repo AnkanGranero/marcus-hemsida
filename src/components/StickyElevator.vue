@@ -10,8 +10,8 @@ export default {
   computed: {
     arrow() {
       return this.$store.getters.arrow;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -25,5 +25,6 @@ export default {
   position: fixed;
   height: 7%;
   padding: 2%;
+  cursor: pointer;
 }
 </style>
