@@ -27,11 +27,23 @@ export default {
     BodyComponent,
     FormComp,
     Hero,
-    Footer
+    Footer,
   },
   props: {
-    pageInfo: Object
-  }
+    pageInfo: Object,
+  },
+  metaInfo() {
+    return {
+      title: "Marcus Eckermann",
+      meta: [
+        {
+          vmid: "description",
+          name: "Marcus Eckermanns hemsida",
+          content: "Marcus von Eckermann kontakt",
+        },
+      ],
+    };
+  },
 };
 </script>
 

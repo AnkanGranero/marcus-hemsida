@@ -28,20 +28,11 @@ export default {
     Hero,
     BodyComponent,
     Mail,
-    Footer
+    Footer,
   },
   props: {
-    pageInfo: Object
-  }
-  /*   computed: {
-    image() {
-      let answer;
-      if (this.pageInfo[0]) {
-        answer = this.pageInfo[0].fields.images[0].fields.file.url;
-      }
-      return answer;
-    }
-  } */
+    pageInfo: Object,
+  },
 };
 </script>
 

@@ -15,7 +15,7 @@ export default {
   name: "App",
   data() {
     return {
-      pages: []
+      pages: [],
     };
   },
   components: { HeaderComponent },
@@ -27,9 +27,9 @@ export default {
           vmid: "description",
           name: "description",
           content:
-            "Jag heter Marcus von Eckermann och är coach och expert på personlighetstyper"
-        }
-      ]
+            "Jag heter Marcus von Eckermann och är coach och expert på personlighetstyper",
+        },
+      ],
     };
   },
   methods: {
@@ -37,15 +37,15 @@ export default {
       try {
         let entries = await client.getEntries({
           content_type: "hemsida",
-          include: 3
+          include: 3,
         });
         this.pages = entries.items[0].fields.pages;
       } catch (err) {}
-    }
+    },
   },
   computed: {
     thisPage() {
-      return this.pages.filter(p => p.fields.title === this.$route.name);
+      return this.pages.filter((p) => p.fields.title === this.$route.name);
     },
 
     pageInfo() {
@@ -56,18 +56,12 @@ export default {
         desktopImage: "",
         backgroundImage: "",
         link: {},
-        /*    textAndList: [], */
-        references: []
+        references: [],
       };
       let page = this.thisPage ? this.thisPage[0] : "";
       if (page) {
         answer.bodyText = page.fields.bodyText ? page.fields.bodyText : null;
         answer.overview = page.fields.overview ? page.fields.overview : null;
-
-        /*       answer.textAndList = page.fields.textAndList
-          ? page.fields.textAndList
-          : null; */
-
         answer.references = page.fields.references
           ? page.fields.references
           : null;
@@ -90,11 +84,11 @@ export default {
         }
       }
       return answer;
-    }
+    },
   },
   mounted() {
     this.fetchPages();
-  }
+  },
 };
 </script>
 

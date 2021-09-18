@@ -19,17 +19,30 @@ export default {
   name: "Hem",
   data() {
     return {
-      name: "Hem"
+      name: "Hem",
+    };
+  },
+  metaInfo() {
+    return {
+      title: "Marcus Eckermann",
+      meta: [
+        {
+          vmid: "description",
+          name: "Marcus Eckermanns hemsida",
+          content:
+            "Jag heter Marcus von Eckermann och är coach och expert på personlighetstyper",
+        },
+      ],
     };
   },
   components: {
     BodyComponent,
     Footer,
-    Hero
+    Hero,
   },
   props: {
-    pageInfo: Object
-  }
+    pageInfo: Object,
+  },
 };
 </script>
 <style lang="scss">
