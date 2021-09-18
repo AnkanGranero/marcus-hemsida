@@ -52,6 +52,7 @@ export default {
 }
 .page-wrapper {
   min-height: 430px;
+  background: $dark;
 }
 
 .page-image-desktop {
