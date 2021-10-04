@@ -4,12 +4,19 @@
       <div class="header-top">
         <img class="logo" :src="eckermannLogo" alt />
         <div class="links">
-          <router-link v-for="page in pages" :key="page.name" :to="page.path">{{page.name}}</router-link>
+          <router-link v-for="page in pages" :key="page.name" :to="page.path">{{
+            page.name
+          }}</router-link>
         </div>
         <img class="hamburger" :src="hamburgerLogo" @click="toggleOverlay" />
       </div>
       <div class="socialMediaIcons">
-        <a v-for="(icon, index) in icons" v-bind:key="index" :href="icon.href" target="_blank">
+        <a
+          v-for="(icon, index) in icons"
+          v-bind:key="index"
+          :href="icon.href"
+          target="_blank"
+        >
           <img :src="icon.url" :alt="icon.name" class="icon" />
         </a>
       </div>
@@ -35,7 +42,7 @@ export default {
       overlayIsVisible: false,
       windowWidth: 0,
       windowHeight: 0,
-      overlayIsVisible: false
+      overlayIsVisible: false,
     };
   },
 
@@ -46,7 +53,7 @@ export default {
 
     thisPage() {
       return this.$store.getters.pages.filter(
-        i => i.name === this.currentRouteName
+        (i) => i.name === this.currentRouteName
       );
     },
     //alla getters från store kanske borde ersättas eller kanske vara en array som sätts av contentful
@@ -61,14 +68,16 @@ export default {
     },
 
     hamburgerLogo() {
-      return this.logos.filter(l => l.name === "hamburger").map(l => l.white);
+      return this.logos
+        .filter((l) => l.name === "hamburger")
+        .map((l) => l.white);
     },
     eckermannLogo() {
       /* const color = this.windowWidth > 1024 ? "black" : "white"; */
       return this.logos
-        .filter(l => l.name === "von-eckermann")
-        .map(l => l["white"]);
-    }
+        .filter((l) => l.name === "von-eckermann")
+        .map((l) => l["white"]);
+    },
   },
   methods: {
     toggleOverlay() {
@@ -77,12 +86,12 @@ export default {
     handleResize() {
       this.windowWidth = screen.width;
       this.windowHeight = screen.height;
-    }
+    },
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
-  }
+  },
 };
 </script>
 
@@ -139,7 +148,7 @@ export default {
     padding: 20px 10px;
   }
 
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     /*   position: static;
     background: $background;
     box-shadow: 1px 2px 4px rgba(240, 240, 240, 0.3); */
@@ -166,14 +175,14 @@ export default {
     height: 120%;
   }
 
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     display: none;
   }
 }
 
 .links {
   display: none;
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     display: flex;
     justify-content: space-between;
     width: 50%;

@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: "FormComp"
+  name: "FormComp",
 };
 </script>
 
@@ -61,7 +61,7 @@ export default {
     margin: 0 15%;
   }
 
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     margin: 0 25%;
   }
 

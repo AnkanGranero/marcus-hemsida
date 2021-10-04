@@ -42,12 +42,11 @@ export default {
   background: $dark;
   display: flex;
 
-  /* align-items: flex-start; */
-
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     width: 100%;
     position: relative;
     overflow: hidden;
+    min-height: 636px;
   }
 }
 .page-wrapper {
@@ -57,7 +56,7 @@ export default {
 
 .page-image-desktop {
   display: none;
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     display: unset;
     width: 100%;
     align-self: flex-start;
@@ -65,7 +64,7 @@ export default {
 }
 .page-image-mobile {
   width: 100%;
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     display: none;
   }
 }
@@ -76,13 +75,9 @@ export default {
   @media only screen and (min-width: $mobile) {
     font-size: 5em;
   }
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     font-size: 7em;
   }
-  /* 
-  @media only screen and (min-width: $pad) {
-    display: none;
-  } */
 }
 h1 {
   text-align: center;

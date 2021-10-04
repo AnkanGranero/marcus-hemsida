@@ -1,10 +1,18 @@
 <template>
   <div class="page-wrapper">
     <div class="body-wrapper">
-      <sticky-elevator :class="elevatorIsShowing" class="elevator" @click.native="scrollToTop" />
+      <sticky-elevator
+        :class="elevatorIsShowing"
+        class="elevator"
+        @click.native="scrollToTop"
+      />
       <div class="box">
         <div v-for="(textBox, index) in pageText" v-bind:key="index">
-          <h2 v-if="textBox.fields.header" v-text="textBox.fields.header" class="zz-top" />
+          <h2
+            v-if="textBox.fields.header"
+            v-text="textBox.fields.header"
+            class="zz-top"
+          />
 
           <div class="bodyText" :class="onlyText(textBox)">
             <div class="innerText">
@@ -28,12 +36,17 @@
         </div>
 
         <div class="overview-container overViewButton" v-if="pageInfo.overview">
-          <div class="overView-wrapper" v-for="(content, index) in pageInfo.overview" :key="index">
+          <div
+            class="overView-wrapper"
+            v-for="(content, index) in pageInfo.overview"
+            :key="index"
+          >
             <router-link
               class="overViewHeader"
               tag="h2"
               :to="content.fields.header"
-            >{{ content.fields.header}}</router-link>
+              >{{ content.fields.header }}</router-link
+            >
 
             <p
               v-for="(text, index) in content.fields.bodyText.content"
@@ -53,7 +66,9 @@
             ></li>
         </div>-->
         <div>
-          <h2 v-if="pageInfo.references" class="reference-header">Referenser</h2>
+          <h2 v-if="pageInfo.references" class="reference-header">
+            Referenser
+          </h2>
           <div v-for="(reference, index) in pageInfo.references" :key="index">
             <div class="references bodyText" :class="onlyText(reference)">
               <div class="innerText">
@@ -87,27 +102,27 @@ let $ = JQuery;
 export default {
   name: "BodyComponent",
   components: {
-    StickyElevator
+    StickyElevator,
   },
   data() {
     return {
-      windowTop: 0
+      windowTop: 0,
     };
   },
 
   props: {
     propName: String,
     pageInfo: Object,
-    backgroundImage: String
+    backgroundImage: String,
   },
 
   computed: {
     renderedPage() {
-      return this.$store.getters.pages.filter(p => p.name === this.propName);
+      return this.$store.getters.pages.filter((p) => p.name === this.propName);
     },
     eckermannLogo() {
       return this.$store.getters.logos.filter(
-        l => l.name === "von-eckermann"
+        (l) => l.name === "von-eckermann"
       )[0];
     },
     pageText() {
@@ -120,15 +135,15 @@ export default {
     },
     elevatorIsShowing() {
       return {
-        active: this.windowTop > 850
+        active: this.windowTop > 850,
       };
     },
 
     contentfulRenderedPage() {
       return this.$store.getters.contentfulPages
-        .filter(p => p.fields.title === this.propName)
-        .map(item => item.fields);
-    }
+        .filter((p) => p.fields.title === this.propName)
+        .map((item) => item.fields);
+    },
   },
 
   created() {
@@ -149,7 +164,7 @@ export default {
       window.scroll({
         top: 0,
         left: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     },
     removeQuotes(str) {
@@ -169,7 +184,7 @@ export default {
       var bottomOfWindow = $(window).scrollTop() + $(window).height();
       $(".box")
         .find("*")
-        .each(function() {
+        .each(function () {
           var bottomOfObject = $(this).position().top + $(this).outerHeight();
 
           if (bottomOfWindow > bottomOfObject * 0.8) {
@@ -188,7 +203,7 @@ export default {
         case bottomOfWindow < totalHeight * 0.6:
           $(".box").css({
             "background-color": "#2d2a2a",
-            transition: "background-color 5s linear"
+            transition: "background-color 5s linear",
           });
           this.changeOpacity(0, ".background-overlay");
 
@@ -198,13 +213,13 @@ export default {
           this.changeOpacity(0, ".background-overlay");
           $(".box").css({
             "background-color": "rgb(61, 55, 55)",
-            transition: "background-color 2s linear"
+            transition: "background-color 2s linear",
           }); //this is $dark
 
           break;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -263,7 +278,7 @@ export default {
   align-items: center;
 
   display: flex;
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     width: 100%;
   }
 }
@@ -273,7 +288,7 @@ export default {
 
 .page-image-desktop {
   display: none;
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     display: unset;
   }
 }
@@ -319,7 +334,7 @@ export default {
   p {
     margin: 0;
   }
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     padding: 3% 10%;
   }
 }
@@ -338,7 +353,7 @@ export default {
   }
   img {
     width: 100%;
-    @media only screen and (min-width: $pad) {
+    @media only screen and (min-width: $laptop) {
       width: 50%;
     }
   }
@@ -363,7 +378,7 @@ li {
     font-size: 16px;
     line-height: 27px;
   }
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     font-size: 21px;
   }
 }
@@ -439,7 +454,7 @@ li {
 
 .header {
   position: absolute;
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
   }
 }
 

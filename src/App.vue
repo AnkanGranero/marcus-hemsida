@@ -110,7 +110,7 @@ h1 {
   font-size: 5em;
   font-weight: 300;
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     font-size: 4em;
   }
 }
@@ -123,7 +123,7 @@ h2 {
   @media only screen and (min-width: $mobile) {
     font-size: 3em;
   }
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     font-size: 4em;
   }
 }
@@ -166,7 +166,7 @@ p {
   @media only screen and (min-width: $mobile) {
     font-size: 16px;
   }
-  @media only screen and (min-width: $pad) {
+  @media only screen and (min-width: $laptop) {
     font-size: 20px;
   }
 }
