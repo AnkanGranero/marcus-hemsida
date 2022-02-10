@@ -15,7 +15,7 @@
     "core-js": "^2.6.12",
     "gh-pages": "^2.2.0",
     "jquery": "^3.6.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.12",
     "vue-meta": "^2.4.0",
